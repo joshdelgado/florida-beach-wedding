@@ -1,0 +1,44 @@
+<div class="location-box" style="background-image: url( {{ section.settings.location-image | img_url: '500x'}})">
+  <a class="location-box__inner" href="{{routes.site_url}}{{section.settings.location-url}}">
+    <div>
+      <h2 class="location-box__title"> {{ section.settings.location-name }} </h2>
+      <span class="location-box__button">View Location</span>
+    </div>
+  </a>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Location Box",
+    "settings": [
+      {
+        "id": "location-name",
+        "type": "text",
+        "label": "Location Name"
+      },
+	  {
+        "id": "location-url",
+        "type": "url",
+        "label": "Location link"
+      },
+	  {
+        "id": "location-image",
+        "type": "image_picker",
+        "label": "Image"
+      }
+	],
+	"presets": [
+      {
+        "name": "Location Box",
+        "category": "Custom Sections"
+      }
+	]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

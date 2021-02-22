@@ -1,0 +1,84 @@
+<div class="rte package-child-page">
+  <section class="package-child-page__block package-child-page__block--tan">
+    <div class="grid grid-limit">
+
+      <div class="grid__item post-large--two-thirds">
+        <div class="package-child-page__header">
+          <h1 class="package-child-page__title">{{ page.title }}</h1>
+        </div>
+        <div class="package-child-page__subheading">
+          {{ page.content }}
+        </div>
+        <div class="package-child-page__image">
+          <img src="https://placehold.it/600x300" />
+        </div>
+        <h2 class="package-child-page__heading">What is included with this package?</h2>
+        {{ page.metafields.child-package.whats-included}}
+      </div>
+
+      <div class="grid__item post-large--one-third">
+        <h4 class="package-child-page__list-heading">More Packages</h4>
+        <div class="package-child-page__list">
+          <div class="package-child-page__list-item">
+            <a href="">Package Name</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="grid grid-limit">
+      <div class="grid__item">
+        {% if page.metafields.child-package.video-url %}
+          <iframe width="1080" height="608" src="{{ page.metafields.child-package.video-url}}" frameborder="0" allowfullscreen=""></iframe>
+        {% endif%}
+      </div>
+    </div>
+
+    <div class="grid grid-limit package-child-page__box-row">
+      <div class="grid__item post-large--one-third">
+        <div class="border-box">
+          <h4 class="border-box__title">TOTAL PARTICIPANTS</h4>
+          <span class="border-box__amount">2-100</span>
+          <p class="border-box__text">For groups over 50, <a href="https://floridabeachweddings.com/contact-us">contact us</a> for possible additional charges.</p>
+        </div>
+      </div>
+      <div class="grid__item post-large--one-third">
+      <div class="border-box">
+          <h4 class="border-box__title">Use Drop Down For Pricing</h4>
+          <form class="border-box__form">
+            <select class="border-box__select">
+              <option>option 1</option>
+              <option>option 1</option>
+            </select>
+          </form>
+          <p class="border-box__text">*Does not include any permit or parking fees that may be required</p>
+        </div>
+      </div>
+      <div class="grid__item post-large--one-third">
+      <div class="border-box">
+          <h4 class="border-box__title">RESERVING YOUR DATE<br>NON-REFUNDABLE DEPOSIT</h4>
+          <span class="border-box__amount">$500.00</span>
+          <p class="border-box__text">This non-refundable deposit  is required to reserve your date. This deposit will be subtracted from the package price. Any permit fees that may be required, will be due at time of reservation deposit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="package-child-page__block">
+    <div class="grid grid-limit">
+      <div class="grid__item">
+        Contact Form Here
+      </div>
+    </div>
+  </section>
+  
+  <section class="package-child-page__block package-child-page__block--tan">
+    <div class="grid grid-limit">
+      <div class="grid__item package-child-page__section-three">
+        <h3 class="package-child-page__section-three-title">Beach Weddings with our Geometric Wedding Arch</h3>
+        <img class="package-child-page__section-three-image" src="https://placehold.it/630x420" />
+        <p>If you are looking to keep up with modern trends, break free from the typical beach wedding ceremony and have an unforgettable experience, our new Geometric Wedding Arch Package is the right choice for you. This design is simple, natural, and earthy yet cutting edge with is geometric features. Raw wood and flowers complete this highly romantic wedding arch. Our Geometric Wedding Arches have limited availability therefore we recommend <a href="https://floridabeachweddings.com/contact-us">reserving this package</a> as soon as possible. We look forward to working with you on your destination Florida Beach Wedding Ceremony! </p>
+      </div>
+    </div>
+  </section>
+</div>

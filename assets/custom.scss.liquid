@@ -1,0 +1,230 @@
+{% if settings.enable_wide_layout %}
+$siteWidth: 1340px;
+{% else %}
+$siteWidth: 1030px;
+{% endif %}
+
+// General
+
+.grid-limit {
+  max-width: $siteWidth;
+  margin: 0 auto;
+}
+
+.jds-button {
+  display: inline-block;
+  color: {{ settings.color_button_primary_text }};
+  background-color: {{ settings.color_primary }};
+  padding: 0.5rem 2rem;
+  font-size: 1.25rem;
+}
+
+.main-content:after {
+  padding: 0;
+}
+
+// Packages Page
+.packages-page {
+
+  .packages-page__block {
+    margin-bottom: 6rem;
+  }
+
+  .packages-page__block--one {
+    margin-bottom: 4rem;
+  }
+
+  .packages-page__block:last-child {
+    margin-bottom: 0;
+  }
+
+  .packages-page__heading {
+    text-align: center;
+    font-style: italic;
+  }
+
+  .packages-page__block-two-image{
+    display: inline-block;
+    width: 100%;
+  }
+
+  .packages-page__footer-button-area{
+    text-align: center;
+    padding-top: 3rem;
+  }
+}
+
+// Package Child
+.package-child-page {
+  .package-child-page__block{
+    padding: 3rem 0;
+  }
+  .package-child-page__block--tan{
+    background-color: #f9f9f4;
+  }
+  .package-child-page__header {
+    border: 2px solid {{ settings.color_primary }};
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .package-child-page__title {
+    background-color: {{ settings.color_primary }};
+    padding: 1.25rem 0 1rem;
+    text-align: center;
+    margin: 0;
+  }
+  .package-child-page__subheading {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .package-child-page__image{
+    img {
+      display:inline-block;
+      width: 100%;
+    }
+  }
+  .package-child-page__heading {
+    text-align: center;
+    margin: 2rem 0 1rem;
+  }
+  .package-child-page__list-heading { 
+    background-color: {{ settings.color_primary }};
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0 0.25rem;
+  }
+
+  .package-child-page__list { 
+    background-color: {{ settings.color_primary }};
+    border-left: 1px solid {{ settings.color_primary }};
+    border-right: 1px solid {{ settings.color_primary }};
+    text-align: center;
+  }
+  .package-child-page__list-item {
+    background-color: #fff;
+    border-bottom: 1px solid {{ settings.color_primary }};
+    transition: all 0.25s ease;
+
+    a {
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 0.5rem 0;
+      color: #3dba9d;
+    }
+
+    &:hover {
+      opacity: 0.7;
+
+      a {
+        color: #3dba9d;
+      }
+    }
+  }
+  .package-child-page__box-row {
+  	margin-top: 2rem;
+  }
+  .package-child-page__section-three {
+    text-align: center;
+
+    .package-child-page__section-three-title {
+      margin: 0;
+    }
+    .package-child-page__section-three-image {
+      display: inline-block;
+      margin: 2rem 0;
+    }
+    .package-child-page__section-three-text {}
+  }
+}
+
+// Location Box
+.location-box{
+  position: relative;
+  max-width: 500px;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  .location-box__inner{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .location-box__title{
+    font-family: 'Sorts Mill Goudy';
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-style: italic;
+    color: #fff;
+  }
+
+  .location-box__button{
+    color: {{ settings.color_button_primary_text }};
+    background-color: {{ settings.color_primary }};
+    padding: .5rem;
+  }
+
+  &:hover { 
+    .location-box__inner {
+      background-color: rgba(0,0,0,0.6);
+    }
+  }
+}
+
+//border-box
+.border-box {
+  background-color: #fff;
+  border: 1px solid {{ settings.color_primary }};
+  padding: 1rem;
+  text-align: center;
+
+  .border-box__title {
+    margin: 0;
+    font-family: 'Karla',sans-serif;
+    text-transform: uppercase;
+  }
+
+  .border-box__amount {
+    display: block;
+    font-size: 28px;
+    margin: 0.25rem 0;
+  }
+  
+  .border-box__form {
+	border: 1px solid {{ settings.color_primary }};
+    padding: 0.25rem;
+    margin: 1rem 0;
+  }
+  
+  .border-box__select {
+    background-color: {{settings.color_primary }};
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    border: 0;
+    margin: 0;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 0;
+  }
+  
+  .border-box__text {
+    font-size: 14px;
+    line-height: 1.25;
+    margin: 0;
+  }
+}

@@ -1,0 +1,46 @@
+<div class="rte packages-page">
+  <div class="grid grid-limit packages-page__block packages-page__block--one">
+    <div class="grid__item">
+      <header class="section-header">
+        <h1 class="section-header__title">{{ page.title }}</h1>
+      </header>
+      {{ page.content }}
+    </div>
+  </div>
+  <div class="grid grid-limit packages-page__block">
+    {% for package in page.metafields.package.package-name %}
+    <div class="grid__item post-large--one-half">
+      <div class="location-box" style="background-image: url( {{page.metafields.package.package-bg-image[forloop.index0]}}">
+        <a class="location-box__inner" href="{{routes.site_url}}{{page.metafields.package.package-link[forloop.index0]}}">
+          <div>
+            <h2 class="location-box__title">{{page.metafields.package.package-name[forloop.index0]}}</h2>
+            <span class="location-box__button">View Location</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="grid grid-limit packages-page__block">
+    <div class="grid__item post-large--one-half">
+      {% if page.metafields.second-block.heading %}
+      <h2 class="packages-page__heading">{{page.metafields.second-block.heading}}</h2>
+      {% endif%}
+      {{page.metafields.second-block.text}}
+    </div>
+    <div class="grid__item post-large--one-half">
+      <img class="packages-page__block-two-image" src="{{page.metafields.second-block.image}}" />
+    </div>
+  </div>
+  <div class="grid grid-limit packages-page__block">
+    <div class="grid__item">
+      {% if page.metafields.third-block.heading %}
+      <h2 class="packages-page__heading">{{page.metafields.third-block.heading}}</h2>
+      {% endif%}
+      {{page.metafields.third-block.text}}
+      <div class="packages-page__footer-button-area">
+        <a href="mailto:pam@floridabeachweddings.com" class="jds-button">Send Email Now</a>
+      </div>
+    </div>
+  </div>
+</div>
