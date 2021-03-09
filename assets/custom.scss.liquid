@@ -6,6 +6,8 @@ $siteWidth: 1030px;
 
 // General
 
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+
 .grid-limit {
   max-width: $siteWidth;
   margin: 0 auto;
@@ -60,7 +62,7 @@ $siteWidth: 1030px;
     padding: 3rem 0;
   }
   .package-child-page__block--tan{
-    background-color: #f9f9f4;
+    background-color: #f9f4f7;
   }
   .package-child-page__header {
     border: 2px solid {{ settings.color_primary }};
@@ -227,4 +229,127 @@ $siteWidth: 1030px;
     line-height: 1.25;
     margin: 0;
   }
+}
+
+// About Page
+.about-page {
+  padding: 0 2rem;
+  .about-page__container {
+    display: flex;
+    padding: 2rem 0;
+  }
+  .about-page__subtitle {
+    padding: 2rem 0;
+    text-align: center;
+    margin: 0;
+    font-family: 'Sorts Mill Goudy', serif;
+    font-style: italic;
+    font-size: 18px;
+  }
+  .about-page__image {
+    width: 50%;
+    height: 100%;
+    margin: auto 2rem auto 0;
+  }
+  .about-page__content {
+    font-size: 12px;
+  }
+  .about-page__text {
+    font-size: 12px;
+  }
+  .about-page__link {
+    color: #3dba9d;
+  }
+  .about-page__team-members {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    .about-page__member {
+      .about-page__member-image {
+        max-width: 200px;
+      }
+      .about-page__member-info {
+        .about-page__member-name {
+          margin: 0;
+          font-family: 'Sorts Mill Goudy', serif;
+          font-style: italic;
+          font-size: 16px;
+        }
+        .about-page__member-title {
+          font-size: 12px;
+          margin: 0;
+        }
+      }
+    }
+  }
+  .about-page__testimonial-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    .about-page__testimonial {
+      background: #f5f5f5;
+      padding: 2rem;
+      width: 45%;
+      .about-page__testimonial-text {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+      .about-page__testimonial-name {
+        font-size: 11px;
+        font-weight: bold;
+      }
+    }
+  }
+  .about-page__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    .about-page__footer-text {
+      margin: 2rem 0;
+    }
+  }
+}
+
+
+// Florida Beach Weddings Custom
+
+.main-content__container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+// Media Queries
+
+@media (max-width: 1024px) {
+  .about-page {
+    img {
+      width: 100%;
+    }
+    .about-page__container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .about-page__image {
+      width: 50%;
+    }
+    .about-page__title {
+      text-align: center;
+      padding-top: 1.5rem;
+    }
+    .about-page__team-members {
+      flex-wrap: wrap;
+      text-align: center;
+      .about-page__member {
+        width: 50%;
+      }
+    }
+    .about-page__testimonial-container {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
 }
