@@ -140,6 +140,50 @@ $siteWidth: 1030px;
   }
 }
 
+// Location Intro
+.locations-page {
+  p {
+    font-size: 14px;
+  }
+  a {
+    color: #3dba9d;
+  }
+  .locations__intro {
+    .locations__intro-container {
+      width: 60%;
+      margin: 0 auto;
+      padding: 4px;
+      border: 3px solid #c5e0dc;
+      max-width: 1080px;
+      .locations__intro-content {
+        padding: 30px;
+        background-color: #c5e0dc;
+      }
+    }
+  }
+  .locations__wrapper {
+    display: flex;
+    margin-top: 4rem;
+    .locations__block {
+      display: flex;
+      flex-direction: column;
+      padding: 0 1rem;
+      .locations__content {
+        margin: 0 auto auto;
+        padding-bottom: 2rem;
+      }
+    }
+  }
+  .locations__subheading {
+    text-align: center;
+    font-style: italic;
+  }
+  .locations__tips-content {
+    padding: 0 1rem;
+  }
+}
+
+
 // Location Box
 .location-box{
   position: relative;
@@ -251,12 +295,6 @@ $siteWidth: 1030px;
     height: 100%;
     margin: auto 2rem auto 0;
   }
-  .about-page__content {
-    font-size: 12px;
-  }
-  .about-page__text {
-    font-size: 12px;
-  }
   .about-page__link {
     color: #3dba9d;
   }
@@ -265,8 +303,12 @@ $siteWidth: 1030px;
     justify-content: space-between;
     padding: 2rem 0;
     .about-page__member {
+      margin-right: 1rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
       .about-page__member-image {
-        max-width: 200px;
+        max-width: 100%;
       }
       .about-page__member-info {
         .about-page__member-name {
@@ -289,7 +331,7 @@ $siteWidth: 1030px;
     .about-page__testimonial {
       background: #f5f5f5;
       padding: 2rem;
-      width: 45%;
+      width: 49%;
       .about-page__testimonial-text {
         font-size: 12px;
         line-height: 1.5;
@@ -321,35 +363,86 @@ $siteWidth: 1030px;
 
 // Media Queries
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   .about-page {
     img {
+      height: 100%;
       width: 100%;
     }
     .about-page__container {
       flex-wrap: wrap;
       justify-content: center;
     }
-    .about-page__image {
-      width: 50%;
-    }
     .about-page__title {
       text-align: center;
       padding-top: 1.5rem;
     }
     .about-page__team-members {
-      flex-wrap: wrap;
+      
       text-align: center;
       .about-page__member {
-        width: 50%;
+        width: auto;
+        .about-page__member-image {
+          height: auto;
+        }
       }
     }
     .about-page__testimonial-container {
       flex-wrap: wrap;
+      .about-page__testimonial {
+        width: 100%;
+        margin-bottom: 1rem;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .locations-page {
+    .location-box {
+      max-width: 100%;
+    }
+
+    .locations__intro {
+      .locations__intro-container {
+        width: 95%;
+      }
     }
   }
 }
 
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
+  .about-page {
+  }
 
+  .locations-page {
+    .locations__wrapper {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .about-page {
+    .about-page__image {
+      width: 100%;
+      margin: 0;
+      }
+    .about-page__team-members {
+      flex-wrap: wrap;
+      .about-page__member {
+        margin-bottom: 1rem;
+          &:last-of-type {
+            margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .locations-page {
+    .locations__block {
+      padding: 0px 2.5rem;
+    }
+  }
 }
