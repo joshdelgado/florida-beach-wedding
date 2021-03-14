@@ -1,33 +1,61 @@
-<div class="rte package-child-page">
-    <section class="package-child-page__block package-child-page__block--tan">
+<div class="rte location-child-page">
+    <section class="location-child-page__block">
         <div class="grid grid-limit">
-
-            <div class="grid__item post-large--two-thirds">
-                <h2 class="package-child-page__heading">{{page.metafields.location.location-name}}</h2>
-                <div class="package-child-page__subheading">
+            <div class="grid__item post-large--one-half">
+                <div class="location-child-page__subheading">
                     {{ page.content }}
                 </div>
                 <div class="package-child-page__image">
                     <img src="https://placehold.it/600x300" />
                 </div>
             </div>
-
-            <div class="grid__item post-large--one-third">
-                <h4 class="package-child-page__list-heading">More Locations</h4>
-                <div class="package-child-page__list">
-                    <div class="package-child-page__list-item">
-                        <a href="">Location Name</a>
-                    </div>
+            <div class="grid__item post-large--one-half">
+                <h2 class="location-child-page__heading">{{page.metafields.location.location-name}}</h2>
+                <div class="location-child-page__main-description">
+                    <p>{{page.metafields.location.location-child-description}}</p>
                 </div>
             </div>
-
         </div>
         <div class="grid grid-limit">
-            <div class="grid__item">
-                {% if page.metafields.child-package.video-url %}
-                <iframe width="1080" height="608" src="{{ page.metafields.child-package.video-url}}" frameborder="0"
+            <div class="grid__item post-large--one-half">
+                <h3>
+                    {% if page.metafields.location.location-package-heading %}
+                    {{page.metafields.location.location-package-heading}}
+                    {% endif%}
+                </h3>
+                <p>
+                    {% if page.metafields.location.location-package-text %}
+                    {{page.metafields.location.location-package-text}}
+                    {% endif%}
+                </p>
+            </div>
+            <div class="grid__item post-large--one-half">
+                {% if page.metafields.location.location-video-url %}
+                <iframe width="1080" height="608" src="{{page.metafields.location.location-video-url}}" frameborder="0"
                     allowfullscreen=""></iframe>
                 {% endif%}
+                {% if page.metafields.location.location-video-url == blank %}
+                <img src="https://placehold.it/600x300" />
+                {% endif%}
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="locations__wrapper grid-limit">
+            <div class="grid__item location-child__package-container">
+                {% for package in page.metafields.daytona.daytona-package-heading %}
+                <div class="location-child__package">
+                    <div class="location-child__package-image"
+                        style="background-image: url( {{page.metafields.daytona.daytona-package-image[forloop.index0]}}">
+                    </div>
+                    <h3 class="location-child-package__heading">
+                        {{page.metafields.daytona.daytona-package-heading[forloop.index0]}}
+                    </h3>
+                    <p class="location-child-package__text">
+                        {{page.metafields.daytona.daytona-package-text[forloop.index0]}}
+                    </p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
