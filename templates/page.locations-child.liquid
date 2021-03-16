@@ -1,13 +1,12 @@
 <div class="rte location-child-page">
     <section class="location-child-page__block">
-        <div class="grid grid-limit">
+        <div class="grid grid-limit location-child-page__intro-container">
             <div class="grid__item post-large--one-half">
-                <div class="location-child-page__subheading">
-                    {{ page.content }}
+                {% if page.metafields.location.location-intro-image %}
+                <div class="location-child-page__image"
+                    style="background-image: url( {{page.metafields.location.location-intro-image}}">
                 </div>
-                <div class="package-child-page__image">
-                    <img src="https://placehold.it/600x300" />
-                </div>
+                {% endif%}
             </div>
             <div class="grid__item post-large--one-half">
                 <h2 class="location-child-page__heading">{{page.metafields.location.location-name}}</h2>
@@ -16,7 +15,21 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-limit">
+        {% if page.metafields.location.location-blurb-text %}
+        <div class="beach-wedding-blurb">
+            <div class="beach-wedding-blurb__container">
+                <div class="beach-wedding-blurb__content">
+                    {% if page.metafields.location.location-blurb-heading %}
+                    <h2 class="beach-wedding-blurb__subheading">{{page.metafields.location.location-blurb-heading}}</h2>
+                    {% endif%}
+                    {% if page.metafields.location.location-blurb-text %}
+                    <p class="beach-wedding-blurb__text">{{page.metafields.location.location-blurb-text}}</p>
+                    {% endif%}
+                </div>
+            </div>
+        </div>
+        {% endif%}
+        <div class="grid grid-limit location-child__package-header">
             <div class="grid__item post-large--one-half">
                 <h3>
                     {% if page.metafields.location.location-package-heading %}
@@ -35,27 +48,35 @@
                     allowfullscreen=""></iframe>
                 {% endif%}
                 {% if page.metafields.location.location-video-url == blank %}
-                <img src="https://placehold.it/600x300" />
+                <img src="{{page.metafields.location.location-video-alt-photo}}" />
                 {% endif%}
             </div>
         </div>
     </section>
     <section>
         <div class="locations__wrapper grid-limit">
-            <div class="grid__item location-child__package-container">
-                {% for package in page.metafields.daytona.daytona-package-heading %}
-                <div class="location-child__package">
-                    <div class="location-child__package-image"
-                        style="background-image: url( {{page.metafields.daytona.daytona-package-image[forloop.index0]}}">
+            <div class="locations__wrapper grid-limit">
+                <div class="location-child__package-container">
+                    {% for package in page.metafields.beach-package.beach-package-description %}
+                    <div class="location-child__package">
+                        {% if page.metafields.beach-package.beach-package-image %}
+                        <div class="location-child__package-image"
+                            style="background-image: url( {{page.metafields.beach-package.beach-package-image[forloop.index0]}}">
+                        </div>
+                        {% endif%}
+                        {% if page.metafields.beach-package.beach-package-heading %}
+                        <h3 class="location-child-package__heading">
+                            {{page.metafields.beach-package.beach-package-heading[forloop.index0]}}
+                        </h3>
+                        {% endif%}
+                        {% if page.metafields.beach-package.beach-package-description %}
+                        <p class="location-child-package__text">
+                            {{page.metafields.beach-package.beach-package-description[forloop.index0]}}
+                        </p>
+                        {% endif%}
                     </div>
-                    <h3 class="location-child-package__heading">
-                        {{page.metafields.daytona.daytona-package-heading[forloop.index0]}}
-                    </h3>
-                    <p class="location-child-package__text">
-                        {{page.metafields.daytona.daytona-package-text[forloop.index0]}}
-                    </p>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </section>

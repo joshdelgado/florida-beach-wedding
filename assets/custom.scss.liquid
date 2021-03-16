@@ -186,12 +186,55 @@ $siteWidth: 1030px;
 // Location child
 
 .location-child-page {
+  p {
+    font-size: 14px;
+  }
+  h3 {
+    font-style: italic;
+  }
+  .location-child-page__block {
+    .location-child-page__intro-container {
+      margin-bottom: 1rem;
+      .location-child-page__image {
+        height: 600px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+  .beach-wedding-blurb {
+    .beach-wedding-blurb__container {
+      width: 80%;
+      margin: 0 auto;
+      padding: 4px;
+      border: 3px solid #c5e0dc;
+      max-width: 1080px;
+      .beach-wedding-blurb__content {
+        padding: 30px;
+        background-color: #c5e0dc;
+      }
+    }
+  }
+  .location-child__package-header {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
   .location-child__package-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: 2rem 0;
     .location-child__package {
       width: 49%;
+      margin: 1.5rem 0;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      .location-child-package__heading {
+        margin: 1rem 0;
+      }
     }
     .location-child__package-image {
       position: relative;
@@ -297,6 +340,9 @@ $siteWidth: 1030px;
 // About Page
 .about-page {
   padding: 0 2rem;
+  p {
+    font-size: 14px;
+  }
   .about-page__container {
     display: flex;
     padding: 2rem 0;
@@ -429,6 +475,23 @@ $siteWidth: 1030px;
       }
     }
   }
+
+  .location-child-page {
+    .location-child-page__block {
+      margin-right: 2rem;
+      .beach-wedding-blurb {
+        margin-left: 2rem;
+        .beach-wedding-blurb__container {
+          width: 100%;
+        }
+      }
+      .location-child__package-header {
+      }
+    }
+    .location-child__package-container {
+      margin: 0 2rem;
+    }
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -443,8 +506,10 @@ $siteWidth: 1030px;
   }
 
   .location-child-page {
-    .grid__item {
-      padding: 0 2rem;
+    .location-child-page__intro-container {
+      .location-child-page__image {
+        margin-bottom: 2rem;
+      }
     }
     .location-child__package-container {
       .location-child__package {
@@ -474,6 +539,20 @@ $siteWidth: 1030px;
   .locations-page {
     .locations__block {
       padding: 0px 2.5rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .location-child-page {
+    .location-child-page__block {
+      .location-child-page__intro-container, .location-child__package-header {
+        .grid__item {
+          &:first-of-type {
+            padding-left: 0;
+          }
+        }
+      }
     }
   }
 }
