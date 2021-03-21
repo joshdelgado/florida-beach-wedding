@@ -59,9 +59,9 @@
                 <div class="location-child__package-container">
                     {% for package in page.metafields.beach-package.beach-package-description %}
                     <div class="location-child__package">
-                        {% if page.metafields.beach-package.beach-package-image %}
+                        {% if page.metafields.beach-package.beach-package-photo %}
                         <div class="location-child__package-image"
-                            style="background-image: url( {{page.metafields.beach-package.beach-package-image[forloop.index0]}}">
+                            style="background-image: url( {{page.metafields.beach-package.beach-package-photo[forloop.index0]}}">
                         </div>
                         {% endif%}
                         {% if page.metafields.beach-package.beach-package-heading %}

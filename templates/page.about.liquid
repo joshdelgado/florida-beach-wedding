@@ -1,97 +1,52 @@
 <div class="rte about-page">
     <div class="grid grid-limit about-page__block about-page__block--one">
         <div class="about-page__container">
-            <img class="about-page__image" src="{{page.metafields.team.about-us-image}}" />
+            <img class="about-page__image" src="{{page.metafields.about-us.about-us-main-img}}" />
             <div class="about-page__welcome">
-                <h1 class="about-page__title">{{ page.title }}</h1>
+                <h2 class="about-page__title">{{ page.metafields.about-us.about-us-main-heading }}</h1>
                 <div class="about-page__content">
-                    {{ page.content }}
+                    {{page.metafields.about-us.about-us-main-text}}
                 </div>
             </div>
         </div>
+
         <div class="about-page__team">
             <div class="about-page__team-container">
                 <h1 class="about-page__subtitle">{{page.metafields.second-block.heading}}</h1>
                 <div class="about-page__team-members">
-                    <div class="about-page__member">
-                        <img alt="" class="about-page__member-image"
-                            src="https://floridabeachweddings.com/wp-content/uploads/2020/01/pam-400x516.jpg">
-                        <div class="about-page__member-info">
-                            <p class="about-page__member-name">Pamela Fuit</p>
-                            <p class="about-page__member-title">President and Owner</p>
-                        </div>
+                  {% for member in page.metafields.about-us.team-member-name %}
+                  <div class="about-page__member">
+                    <img alt="" class="about-page__member-image"
+                        src="{{page.metafields.about-us.team-member-image[forloop.index0]}}">
+                    <div class="about-page__member-info">
+                      {% if page.metafields.about-us.team-member-name %}
+                        <p class="about-page__member-name">{{page.metafields.about-us.team-member-name[forloop.index0]}}</p>
+                      {% endif%}
+                      {% if page.metafields.about-us.team-member-title %}
+                        <p class="about-page__member-title">{{page.metafields.about-us.team-member-title[forloop.index0]}}</p>
+                        {% endif%}
                     </div>
-                    <div class="about-page__member">
-                        <img alt="" class="about-page__member-image"
-                            src="https://floridabeachweddings.com/wp-content/uploads/2020/01/kaylabetter-400x516.jpg">
-                        <div class="about-page__member-info">
-                            <p class="about-page__member-name">Kayla Laymon</p>
-                            <p class="about-page__member-title">Head of Media</p>
-                        </div>
-                    </div>
-                    <div class="about-page__member">
-                        <img alt="" class="about-page__member-image"
-                            src="https://floridabeachweddings.com/wp-content/uploads/2020/01/karendo-400x516.jpg">
-                        <div class="about-page__member-info">
-                            <p class="about-page__member-name">Karen Hinkle</p>
-                            <p class="about-page__member-title">Beach Wedding Specialist</p>
-                        </div>
-                    </div>
-                    <div class="about-page__member">
-                        <img alt="" class="about-page__member-image"
-                            src="https://floridabeachweddings.com/wp-content/uploads/2021/02/Susan-SEO-Specialist-400x516.jpg">
-                        <div class="about-page__member-info">
-                            <p class="about-page__member-name">Susan M. Valeri</p>
-                            <p class="about-page__member-title">SEO/Social Media Specialist</p>
-                        </div>
-                    </div>
+                  </div>
+                  {% endfor%}
                 </div>
             </div>
             <div class="about-page__testimonial-container">
+              {% for tesimonial in page.metafields.about-us.testimonial-text %}
                 <div class="about-page__testimonial">
-                    <p class="about-page__testimonial-text">From the very beginning, Karen and Pamela at Florida
-                        Beach Weddings
-                        went to great
-                        lengths to fully understand my wife's and my vision for our wedding. We wanted something
-                        beautiful and memorable, yet also a stress free experience for both us and our guests. I
-                        can honestly say Florida Beach Weddings delivered in every way on that vision. Not only
-                        did they walk us through the entire process, allowing us to customize the wedding to our
-                        desired specifications, but most importantly, every single time we called, every single
-                        time we emailed, and every single time we may have seemingly bugged them along the way,
-                        they were always there to promptly answer our questions, reassure us, and see to it that
-                        our special day went off without a hitch. As an extra feather in their cap, they managed
-                        all of this during the middle of the COVID-19 pandemic. The customer service they
-                        provided was some of the best I have seen out of any company, period. With all that
-                        said, I cannot recommend Florida Beach Weddings highly enough. They provided exactly
-                        what we were looking for and then some. To Karen and Pamela, thank you again for our
-                        special day!!!</p>
-                    <span class="about-page__testimonial-name">Lance Holman</span>
+                    {% if page.metafields.about-us.testimonial-text %}
+                    <p class="about-page__testimonial-text">{{page.metafields.about-us.testimonial-text[forloop.index0]}}</p>
+                    {% endif%}
+                    {% if page.metafields.about-us.testimonial-name %}
+                    <span class="about-page__testimonial-name">{{page.metafields.about-us.testimonial-name[forloop.index0]}}</span>
+                    {% endif%}
                 </div>
-                <div class="about-page__testimonial">
-                    <p class="about-page__testimonial-text">Florida Beach Weddings did an AMAZING job! They made
-                        planning a
-                        wedding from Ohio very
-                        easy. Everyone is very helpful and provided great recommendations for flowers, cake, and
-                        food. I wouldn’t change anything about my wedding! Thanks so much for all your hard
-                        work, you made my special day over the top.</p>
-                    <span class="about-page__testimonial-name">Cathy Diggs</span>
-                </div>
+                {% endfor%}
             </div>
             <div class="about-page__footer">
                 <img alt="" class="about-page__footer-image"
                     src="https://floridabeachweddings.com/wp-content/uploads/2019/12/Pamela-Fuit-Beach-Wedding-Officiant-scaled-e1592336571292.jpg">
-                <p class="about-page__text about-page__footer-text">We understand that you have chosen a beach
-                    wedding to escape the every
-                    day stress and expense of
-                    a formal, traditional wedding. We make sure it is easy for you to see photos of all of our beach
-                    wedding decor, and let us know your choices from the comfort of your own home. Planning a
-                    destination beach wedding has never been easier with our
-                    <a class="about-page__link"
-                        href="https://floridabeachweddings.com/beach-wedding-packages">all-inclusive wedding
-                        packages.</a>
-                    <a class="about-page__link" href="pam@floridabeachweddings.com">Contact
-                        our Beach Wedding Specialists</a>
-                    today to discuss all your wedding ideas!
+                <p class="about-page__text about-page__footer-text">
+                  {{page.metafields.about-us.about-us-footer-text}}
                 </p>
                 <img alt=""
                     src="https://floridabeachweddings.com/wp-content/uploads/2019/05/floridabeachweddingsinDaytona-1080x245.jpg">

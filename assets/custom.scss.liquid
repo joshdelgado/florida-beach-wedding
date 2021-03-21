@@ -21,6 +21,24 @@ $siteWidth: 1030px;
   font-size: 1.25rem;
 }
 
+.main-content {
+  a {
+    color: #3dba9d;
+  }
+  p, li {
+    font-size: 14px;
+  }
+  h2 {
+    font-size: 1.75em;
+    line-height: 1.3;
+    font-family: 'Sorts Mill Goudy';
+    font-style: italic;
+  }
+  h3 {
+    font-style: italic;
+  }
+}
+
 .main-content:after {
   padding: 0;
 }
@@ -53,6 +71,9 @@ $siteWidth: 1030px;
   .packages-page__footer-button-area{
     text-align: center;
     padding-top: 3rem;
+    a {
+      color: #444444;
+    }
   }
 }
 
@@ -89,14 +110,14 @@ $siteWidth: 1030px;
     text-align: center;
     margin: 2rem 0 1rem;
   }
-  .package-child-page__list-heading { 
+  .package-child-page__list-heading {
     background-color: {{ settings.color_primary }};
     text-align: center;
     margin: 0;
     padding: 0.5rem 0 0.25rem;
   }
 
-  .package-child-page__list { 
+  .package-child-page__list {
     background-color: {{ settings.color_primary }};
     border-left: 1px solid {{ settings.color_primary }};
     border-right: 1px solid {{ settings.color_primary }};
@@ -142,12 +163,6 @@ $siteWidth: 1030px;
 
 // Location Intro
 .locations-page {
-  p {
-    font-size: 14px;
-  }
-  a {
-    color: #3dba9d;
-  }
   .locations__intro {
     .locations__intro-container {
       width: 60%;
@@ -186,9 +201,6 @@ $siteWidth: 1030px;
 // Location child
 
 .location-child-page {
-  p {
-    font-size: 14px;
-  }
   h3 {
     font-style: italic;
   }
@@ -202,19 +214,7 @@ $siteWidth: 1030px;
       }
     }
   }
-  .beach-wedding-blurb {
-    .beach-wedding-blurb__container {
-      width: 80%;
-      margin: 0 auto;
-      padding: 4px;
-      border: 3px solid #c5e0dc;
-      max-width: 1080px;
-      .beach-wedding-blurb__content {
-        padding: 30px;
-        background-color: #c5e0dc;
-      }
-    }
-  }
+
   .location-child__package-header {
     display: flex;
     align-items: center;
@@ -284,7 +284,7 @@ $siteWidth: 1030px;
     padding: .5rem;
   }
 
-  &:hover { 
+  &:hover {
     .location-box__inner {
       background-color: rgba(0,0,0,0.6);
     }
@@ -309,13 +309,13 @@ $siteWidth: 1030px;
     font-size: 28px;
     margin: 0.25rem 0;
   }
-  
+
   .border-box__form {
 	border: 1px solid {{ settings.color_primary }};
     padding: 0.25rem;
     margin: 1rem 0;
   }
-  
+
   .border-box__select {
     background-color: {{settings.color_primary }};
     color: #333;
@@ -329,7 +329,7 @@ $siteWidth: 1030px;
     appearance: none;
     border-radius: 0;
   }
-  
+
   .border-box__text {
     font-size: 14px;
     line-height: 1.25;
@@ -337,12 +337,27 @@ $siteWidth: 1030px;
   }
 }
 
+// Gray Box for Blurb
+.beach-wedding-blurb {
+  .beach-wedding-blurb__container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 4px;
+    border: 3px solid #c5e0dc;
+    max-width: 1080px;
+    .beach-wedding-blurb__content {
+      padding: 30px;
+      background-color: #c5e0dc;
+    }
+    .beach-wedding-blurb__subheading {
+      text-align: center;
+    }
+  }
+}
+
 // About Page
 .about-page {
   padding: 0 2rem;
-  p {
-    font-size: 14px;
-  }
   .about-page__container {
     display: flex;
     padding: 2rem 0;
@@ -359,9 +374,6 @@ $siteWidth: 1030px;
     width: 50%;
     height: 100%;
     margin: auto 2rem auto 0;
-  }
-  .about-page__link {
-    color: #3dba9d;
   }
   .about-page__team-members {
     display: flex;
@@ -393,10 +405,12 @@ $siteWidth: 1030px;
     display: flex;
     justify-content: space-between;
     padding: 2rem 0;
+        flex-wrap: wrap;
     .about-page__testimonial {
       background: #f5f5f5;
       padding: 2rem;
       width: 49%;
+      margin-top: 1rem;
       .about-page__testimonial-text {
         font-size: 12px;
         line-height: 1.5;
@@ -412,18 +426,87 @@ $siteWidth: 1030px;
     flex-wrap: wrap;
     justify-content: center;
     padding: 2rem 0;
+    .about-page__footer-image {
+      margin-bottom: 1rem;
+    }
     .about-page__footer-text {
       margin: 2rem 0;
     }
   }
 }
 
+// Wedding Photography page
 
-// Florida Beach Weddings Custom
+.photography-page {
+      margin-right: 2rem;
+  .photography-page__main-text-list {
+    font-size: 14px;
+  }
+  .photography-page__intro-text {
+    margin: 1rem 0;
+  }
+  .photography-page__gallery {
+  }
+  .photography-page__gallery-heading {
+    text-align: center;
+  }
+  .photography-page__image-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .photography-page__image {
+    height: 200px;
+    flex-grow: 1;
+    list-style-type: none;
+    margin-bottom: 0;
+    &:last-child {
+      flex-grow: 10;
+    }
+    img {
+      max-height: 100%;
+      min-width: 100%;
+      object-fit: cover;
+      vertical-align: bottom;
+    }
+  }
+}
 
-.main-content__container {
-  width: 80%;
-  margin: 0 auto;
+// FAQs
+.faqs-page {
+  .faqs__image {
+    height: 200px;
+  }
+
+  .faqs__questions {
+      max-width: 80%;
+      margin: auto;
+      margin-top: 2rem;
+  }
+}
+
+// Accordion
+.accordion {
+  background-color: #c5e0dc;
+  color: #444;
+  cursor: pointer;
+  padding: .5rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  margin: .25rem 0;
+}
+
+.active, .accordion:hover {
+  background-color: #3dba9d;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }
 
 // Media Queries
@@ -443,7 +526,7 @@ $siteWidth: 1030px;
       padding-top: 1.5rem;
     }
     .about-page__team-members {
-      
+
       text-align: center;
       .about-page__member {
         width: auto;
@@ -491,6 +574,15 @@ $siteWidth: 1030px;
     .location-child__package-container {
       margin: 0 2rem;
     }
+  }
+}
+
+// Wedding Photography page
+.photography-page {
+  .photography-page__intro-image {
+    height: 500px;
+    background-size: cover;
+    background-position: center;
   }
 }
 
