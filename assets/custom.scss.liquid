@@ -89,14 +89,14 @@ $siteWidth: 1030px;
     text-align: center;
     margin: 2rem 0 1rem;
   }
-  .package-child-page__list-heading { 
+  .package-child-page__list-heading {
     background-color: {{ settings.color_primary }};
     text-align: center;
     margin: 0;
     padding: 0.5rem 0 0.25rem;
   }
 
-  .package-child-page__list { 
+  .package-child-page__list {
     background-color: {{ settings.color_primary }};
     border-left: 1px solid {{ settings.color_primary }};
     border-right: 1px solid {{ settings.color_primary }};
@@ -222,7 +222,7 @@ $siteWidth: 1030px;
     padding: .5rem;
   }
 
-  &:hover { 
+  &:hover {
     .location-box__inner {
       background-color: rgba(0,0,0,0.6);
     }
@@ -247,13 +247,13 @@ $siteWidth: 1030px;
     font-size: 28px;
     margin: 0.25rem 0;
   }
-  
+
   .border-box__form {
 	border: 1px solid {{ settings.color_primary }};
     padding: 0.25rem;
     margin: 1rem 0;
   }
-  
+
   .border-box__select {
     background-color: {{settings.color_primary }};
     color: #333;
@@ -267,7 +267,7 @@ $siteWidth: 1030px;
     appearance: none;
     border-radius: 0;
   }
-  
+
   .border-box__text {
     font-size: 14px;
     line-height: 1.25;
@@ -353,12 +353,64 @@ $siteWidth: 1030px;
   }
 }
 
+// Blog Page
+.blog-page {}
+.blog-page__header {
+  text-align: center;
+}
+.blog-page__title {
+  font-size: 48px;
+}
+.blog-page__subtitle a {
+  color: #000;
+}
+.blog-article {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  color: #000;
+  margin-bottom: 2rem;
+}
+.blog-article:hover {
+  color: #000;
+}
+.blog-article__image {}
+.blog-article__content {
+  padding: 1.5rem;
+  border: 1px solid #d8d8d8;
+}
+.blog-article__title {
+  font-size: 24px;
+  margin: 0;
+  color: #000;
+}
+.blog-article__meta {
+  display: block;
+}
+.blog-article__author,
+.article__author {
+  color: #3dba9d;
+}
+.blog-article__excerpt {
+  margin: 1rem 0 0;
+}
+.article__header {
+  margin: 0;
+}
+.article__meta {
+  margin: 0 0 1rem 0;
+}
 
 // Florida Beach Weddings Custom
 
 .main-content__container {
   width: 80%;
   margin: 0 auto;
+}
+
+.article__image-wrapper.supports-js .article__image {
+  position: relative !important;
 }
 
 // Media Queries
@@ -378,7 +430,7 @@ $siteWidth: 1030px;
       padding-top: 1.5rem;
     }
     .about-page__team-members {
-      
+
       text-align: center;
       .about-page__member {
         width: auto;
