@@ -1,18 +1,16 @@
 <div class="rte about-page">
     <div class="grid grid-limit about-page__block about-page__block--one">
+        <h1 class="about-page__title">{{ page.title }}</h1>
         <div class="about-page__container">
             <img class="about-page__image" src="{{page.metafields.about-us.about-us-main-img}}" />
             <div class="about-page__welcome">
-                <h2 class="about-page__title">{{ page.metafields.about-us.about-us-main-heading }}</h1>
-                <div class="about-page__content">
-                    {{page.metafields.about-us.about-us-main-text}}
-                </div>
+                {{page.metafields.about-us.about-us-main-text}}
             </div>
         </div>
 
         <div class="about-page__team">
             <div class="about-page__team-container">
-                <h1 class="about-page__subtitle">{{page.metafields.second-block.heading}}</h1>
+                <h2 class="about-page__subtitle">{{page.metafields.second-block.heading}}</h1>
                 <div class="about-page__team-members">
                   {% for member in page.metafields.about-us.team-member-name %}
                   <div class="about-page__member">
@@ -30,6 +28,7 @@
                   {% endfor%}
                 </div>
             </div>
+            <h2>Testimonials</h2>
             <div class="about-page__testimonial-container">
               {% for tesimonial in page.metafields.about-us.testimonial-text %}
                 <div class="about-page__testimonial">
