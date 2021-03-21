@@ -442,6 +442,56 @@ $siteWidth: 1030px;
   }
 }
 
+
+// Blog Page
+.blog-page {}
+.blog-page__header {
+  text-align: center;
+}
+.blog-page__title {
+  font-size: 48px;
+}
+.blog-page__subtitle a {
+  color: #000;
+}
+.blog-article {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  color: #000;
+  margin-bottom: 2rem;
+}
+.blog-article:hover {
+  color: #000;
+}
+.blog-article__image {}
+.blog-article__content {
+  padding: 1.5rem;
+  border: 1px solid #d8d8d8;
+}
+.blog-article__title {
+  font-size: 24px;
+  margin: 0;
+  color: #000;
+}
+.blog-article__meta {
+  display: block;
+}
+.blog-article__author,
+.article__author {
+  color: #3dba9d;
+}
+.blog-article__excerpt {
+  margin: 1rem 0 0;
+}
+.article__header {
+  margin: 0;
+}
+.article__meta {
+  margin: 0 0 1rem 0;
+}
+
 // Wedding Photography page
 
 .photography-page {
@@ -529,6 +579,10 @@ $siteWidth: 1030px;
     background-size: cover;
     background-position: center;
   }
+}
+
+.article__image-wrapper.supports-js .article__image {
+  position: relative !important;
 }
 
 // Media Queries
