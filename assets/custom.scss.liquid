@@ -7,6 +7,8 @@ $siteWidth: 1030px;
 // General
 
 @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import url('/assets/ElegantIcons.scss.css');
+@import url('/assets/ElegantIcons.svg');
 
 .grid-limit {
   max-width: $siteWidth;
@@ -418,6 +420,19 @@ $siteWidth: 1030px;
       width: 49%;
       margin: 0 0 auto;
       margin-bottom: 1rem;
+      position: relative;
+      // &.icon_quotations_alt2:before {
+      //   content: "\7c";
+      //   font-size: 32px;
+      //   font-family: 'ElegantIcons';
+      //   left: 50%;
+      //   position: absolute;
+      //   top: -16px;
+      //   background: #f5f5f5;
+      //   margin-left: -16px;
+      //   border-radius: 31px;
+      //   z-index: 2;
+      // }
       .about-page__testimonial-text {
         font-size: 12px;
         line-height: 1.5;
@@ -535,6 +550,60 @@ $siteWidth: 1030px;
 
 // FAQs
 .faqs-page {
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 700px;
+  
+    .inner {
+        overflow: hidden;
+        display: none;
+        border: 1px solid #c5e0dc;
+        border-top: none;
+        margin: 0;
+        padding: 1rem;
+      
+        &.show {
+          /*display: block;*/
+        }
+    }
+  
+    li {
+        margin: .5em 0;
+        list-style-type: none;
+      
+        a.toggle {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #c5e0dc;
+            color: #333;
+            padding: .75em;
+            transition: all .5s ease-in-out;
+          
+            &:hover {
+                background: #c5e0dc;
+            }
+            &:after {
+              content: "+";
+              font-size: 11px;
+              color: #c5e0dc;
+              height: 20px;
+              width: 20px;
+              text-align: center;
+              border-radius: 50%;
+              background-color: #8c8c8b;
+              min-width: 20px;
+            }
+        }
+    }
+}
+
+
   .faqs__images {
     display: flex;
     justify-content: center;
@@ -547,31 +616,6 @@ $siteWidth: 1030px;
       max-width: 80%;
       margin: auto;
   }
-}
-
-// Accordion
-.accordion {
-  background-color: #c5e0dc;
-  color: #444;
-  cursor: pointer;
-  padding: .5rem;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-  margin: .25rem 0;
-}
-
-.active, .accordion:hover {
-  background-color: #3dba9d;
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
 }
 
 // Wedding Photography page

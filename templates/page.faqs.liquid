@@ -2,55 +2,52 @@
   <div class="grid grid-limit">
 
     <div class="beach-wedding-blurb">
-        <div class="beach-wedding-blurb__container">
-            <div class="beach-wedding-blurb__content">
-                {% if page.metafields.faqs.faqs-blurb-heading %}
-                <h2 class="beach-wedding-blurb__subheading">{{page.metafields.faqs.faqs-blurb-heading}}</h2>
-                {% endif%}
-                {% if page.metafields.faqs.faq-blurb-text %}
-                <p class="beach-wedding-blurb__text">{{page.metafields.faqs.faq-blurb-text}}</p>
-                {% endif%}
-            </div>
+      <div class="beach-wedding-blurb__container">
+        <div class="beach-wedding-blurb__content">
+          {% if page.metafields.faqs.faqs-blurb-heading %}
+          <h2 class="beach-wedding-blurb__subheading">{{page.metafields.faqs.faqs-blurb-heading}}</h2>
+          {% endif%}
+          {% if page.metafields.faqs.faq-blurb-text %}
+          <p class="beach-wedding-blurb__text">{{page.metafields.faqs.faq-blurb-text}}</p>
+          {% endif%}
         </div>
+      </div>
     </div>
 
-<div class="grid grid-limit">
-  <div class="faqs__images">
-    <img src="https://floridabeachweddings.com/wp-content/uploads/2020/01/CouplesChoice2020small.png" alt="">
-    <img src="https://floridabeachweddings.com/wp-content/uploads/2020/03/NGWA-2020-Associate-Member.png" style="height: 180px;" alt="">
-  </div>
-</div>
+    <div class="grid grid-limit">
+      <div class="faqs__images">
+        <img src="https://floridabeachweddings.com/wp-content/uploads/2020/01/CouplesChoice2020small.png" alt="">
+        <img src="https://floridabeachweddings.com/wp-content/uploads/2020/03/NGWA-2020-Associate-Member.png"
+          style="height: 180px;" alt="">
+      </div>
+    </div>
 
-    <div class="faqs__questions">
+    <ul class="accordion">
       {% for faq in page.metafields.faqs.question %}
-        {% if page.metafields.faqs.question %}
-          <button class="accordion">{{page.metafields.faqs.question[forloop.index0]}}</button>
-        {% endif%}
-
-        {% if page.metafields.faqs.answer %}
-          <div class="panel">
-            <p>{{page.metafields.faqs.answer[forloop.index0]}}</p>
-          </div>
-        {% endif%}
+      <li>
+        <a class="toggle" href="#">{{page.metafields.faqs.question[forloop.index0]}}</a>
+        <ul class="inner">
+          <li>{{page.metafields.faqs.answer[forloop.index0]}}</li>
+        </ul>
+      </li>
       {% endfor%}
-    </div>
+    </ul>
   </div>
 </div>
+
+<!-- Javascript -->
 
 <script>
-let accordion = document.getElementsByClassName("accordion");
-let i;
+  $('.toggle').click(function (e) {
+    e.preventDefault();
 
-for (i = 0; i < accordion.length; i++) {
-  accordion[i].addEventListener("click", function() {
-    this.classList.toggle("active");
+    var $this = $(this);
 
-    let question = this.nextElementSibling;
-    if (question.style.display === "block") {
-      question.style.display = "none";
+    if ($this.next().hasClass('show')) {
+      $this.next().removeClass('show');
     } else {
-      question.style.display = "block";
+      $this.parent().find('li .inner').removeClass('show');
+      $this.next().slideToggle(350);
     }
   });
-}
 </script>
