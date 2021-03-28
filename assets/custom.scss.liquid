@@ -263,6 +263,49 @@ $siteWidth: 1030px;
   }
 }
 
+// Child of Child Beach Location
+
+.child-beach-page {
+  .child-beach-page__block {
+    padding-right: 2rem;
+  }
+  .child-beach-page__image {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .child-beach-page__section-container {
+    margin-top: 2rem;
+
+  }
+  .child-beach-page__locations-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .child-beach-page__image {
+      height: 400px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      background-position: left;
+    }
+    .beach-wedding-blurb__container {
+      width: 100%;
+    }
+  }
+}
+
+// Contact Us Banner
+.contact-us-banner {
+  background-color: #f4f4f4;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 2rem !important;
+  width: 78.3%;
+  border: 1px solid #ccc;
+}
 
 // Location Box
 .location-box{
@@ -693,6 +736,16 @@ $siteWidth: 1030px;
     }
     .location-child__package-container {
       margin: 0 2rem;
+    }
+  }
+  .child-beach-page {
+    .child-beach-page__locations-container {
+    display: flex;
+    flex-wrap: wrap;
+      .child-beach-page__image {
+        background-position: center;
+        margin-bottom: 1rem;
+      }
     }
   }
 }
