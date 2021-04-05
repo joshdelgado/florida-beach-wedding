@@ -1,45 +1,84 @@
-<div class="grid">
-
-  <div class="grid__item post-large--two-thirds push--post-large--one-sixth">
-
-    <div class="section-header">
-      <h1 class="section-header--title">{{ page.title }}</h1>
+<div class="grid grid-limit contact-page">
+  <div class="section-header">
+    <h1 class="section-header--title">{{ page.metafields.contact-us.heading }}</h1>
+    {{ page.content }}
+  </div>
+  <div class="contact-page__info">
+    <div class="beach-wedding-blurb">
+      <div class="beach-wedding-blurb__container">
+        <div class="beach-wedding-blurb__content">
+          <h3 class="beach-wedding-blurb__subheading">
+            Florida Beach Weddings
+          </h3>
+          <p><strong>East Coast of Florida:</strong>
+            <br>(386) 235-1549
+            <br>413 Oak Pl, Daytona Beach, FL 32127
+          </p>
+          <p><strong>West Coast of Florida:</strong>
+            <br>(727) 249-2708
+            <br>1727 Coachman Plaza Dr, Clearwater, FL 33759
+          </p>
+          <p><strong>Email:</strong>
+            <br>Pam@FloridaBeachWeddings.com
+          </p>
+          <span><em>Office visits by appointment only</em></span>
+        </div>
+      </div>
+      <img src="https://floridabeachweddings.com/wp-content/uploads/2020/01/CouplesChoice2020small.png" alt="">
     </div>
-
-    <div class="rte">
-      {{ page.content }}
-    </div>
-
-    <div>
-      
-      {% form 'contact' %}
+    <div class="contact-page__form-container">
+      <p>If you have any questions, or would like to reserve your wedding date, please use the form below to contact us.
+      </p>
+      <h3>Contact us about your Florida Beach Wedding Ceremony</h3>
+      <div class="contact-page__form">
+        {% form 'contact' %}
 
         {% if form.posted_successfully? %}
-          <p class="note form-success">
-            {{ 'contact.form.post_success' | t }}
-          </p>
+        <p class="note form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
         {% endif %}
 
         {{ form.errors | default_errors }}
 
         {% assign name_attr = 'contact.form.name' | t | handle %}
         <label for="ContactFormName" class="label--hidden">{{ 'contact.form.name' | t }}</label>
-        <input type="text" id="ContactFormName" name="contact[{{ 'contact.form.name' | t }}]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+        <input type="text" id="ContactFormName" name="contact[{{ 'contact.form.name' | t }}]"
+          placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words"
+          value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}">
 
         <label for="ContactFormEmail" class="label--hidden">{{ 'contact.form.email' | t }}</label>
-        <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+        <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}"
+          autocorrect="off" autocapitalize="off"
+          value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
 
         {% assign name_attr = 'contact.form.phone' | t | handle %}
         <label for="ContactFormPhone" class="label--hidden">{{ 'contact.form.phone' | t }}</label>
-        <input type="tel" id="ContactFormPhone" name="contact[{{ 'contact.form.phone' | t }}]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*" value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+        <input type="tel" id="ContactFormPhone" name="contact[{{ 'contact.form.phone' | t }}]"
+          placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*"
+          value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}">
 
         <label for="ContactFormMessage" class="label--hidden">{{ 'contact.form.message' | t }}</label>
-        <textarea rows="10" id="ContactFormMessage" name="contact[{{ 'contact.form.message' | t }}]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        <textarea rows="10" id="ContactFormMessage" name="contact[{{ 'contact.form.message' | t }}]"
+          placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
 
         <input type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
 
-      {% endform %}
-      
-   </div>
- </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-limit contact-page__other-info">
+    <div class="grid__item post-large--one-half contact-page__other-image">
+      <div class="contact-page__image" style="background-image: url( {{page.metafields.contact-us.contact-us-image}}">
+      </div>
+    </div>
+    <div class="grid__item post-large--one-half contact-page__other-description">
+      <h2 class="contact-page__other-info-heading">{{page.metafields.contact-us.contact-us-other-info-heading}}</h2>
+      <div class="contact-page__other-text">
+        <p>{{page.metafields.contact-us.contact-us-text}}</p>
+      </div>
+    </div>
+  </div>
+
 </div>

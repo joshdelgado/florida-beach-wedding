@@ -19,7 +19,7 @@
         <!-- Clearwater Beach Only-->
         {% if template contains 'page' and page.url == '/pages/clearwater-beach-weddings'%}
         {% if page.metafields.clearwater.beach-location-image %}
-        <div class="locations__wrapper grid-limit location-child-page">
+        <div class="locations__wrapper grid-limit location-child-page clearwater-other-beaches">
             <h2>Stunning Beach Locations</h2>
             <p>{{page.metafields.clearwater.clearwater-other-beaches}}</p>
             <div class="location-child__package-container clearwater">
@@ -115,7 +115,7 @@
         {% for hotel in page.metafields.hotel.hotel-description %}
         {% if page.metafields.hotel.hotel-description %}
         <div class="grid grid-limit location-child__hotel">
-            <div class="grid__item post-large--one-half">
+            <div class="grid__item post-large--one-half location-child__other-info-content">
                 {% if page.metafields.hotel.hotel-image %}
                 <img src="{{page.metafields.hotel.hotel-image[forloop.index0]}}" alt="">
                 {% endif%}
@@ -154,7 +154,7 @@
         {% for hotel in page.metafields.venue.venue-description %}
         {% if page.metafields.venue.venue-description %}
         <div class="grid grid-limit location-child__hotel">
-            <div class="grid__item post-large--one-half">
+            <div class="grid__item post-large--one-half location-child__other-info-content">
                 {% if page.metafields.venue.venue-image %}
                 <img src="{{page.metafields.venue.venue-image[forloop.index0]}}" alt="">
                 {% endif%}
@@ -230,8 +230,8 @@
         <!-- Ft Myers Specific text section -->
         {% if template contains 'page' and page.url == '/pages/fort-myers-beach-weddings'%}
         <hr>
+        <h2>Things to do in Fort Myers</h2>
         <div class="grid grid-limit location-child__other-info">
-            <h2>Things to do in Fort Myers</h2>
             {% for things in page.metafields.ft-myers.things-to-do-heading %}
             <div class="grid__item post-large--one-half location-child__other-info-content">
                 <h3>
@@ -255,38 +255,37 @@
         <div class="child-beach-page">
             <section class="child-beach-page__block">
                 <div class="grid grid-limit child-beach-page__locations-container">
+                    {% if page.metafields.beach.list-of-beaches-img %}
                     <div class="grid__item post-large--one-half">
+                        {% endif%}
                         {% if page.metafields.beach.list-of-beaches-img %}
                         <div class="child-beach-page__image"
                             style="background-image: url( {{page.metafields.beach.list-of-beaches-img}}">
                         </div>
                         {% endif%}
                     </div>
-                    {% if page.metafields.beach.list-of-beaches-img %}
-                    <div class="grid__item post-large--one-half">
+                    {% if page.metafields.beach.list-of-beaches-img == blank %}
+                    <div class="grid grid-limit">
                         {% endif%}
-                        {% if page.metafields.beach.list-of-beaches-img == blank %}
-                        <div class="grid grid-limit">
-                            {% endif%}
-                            {% if page.metafields.beach.list-of-beaches %}
-                            <div class="beach-wedding-blurb">
-                                <div class="beach-wedding-blurb__container">
-                                    <div class="beach-wedding-blurb__content">
-                                        {% if page.metafields.beach.locations-beach-list-heading %}
-                                        <h2 class="beach-wedding-blurb__subheading">
-                                            {{page.metafields.beach.locations-beach-list-heading}}
-                                        </h2>
-                                        {% endif%}
-                                        {% if page.metafields.beach.list-of-beaches %}
-                                        <p class="beach-wedding-blurb__text">{{page.metafields.beach.list-of-beaches}}
-                                        </p>
-                                        {% endif%}
-                                    </div>
+                        {% if page.metafields.beach.list-of-beaches %}
+                        <div class="beach-wedding-blurb">
+                            <div class="beach-wedding-blurb__container">
+                                <div class="beach-wedding-blurb__content">
+                                    {% if page.metafields.beach.locations-beach-list-heading %}
+                                    <h2 class="beach-wedding-blurb__subheading">
+                                        {{page.metafields.beach.locations-beach-list-heading}}
+                                    </h2>
+                                    {% endif%}
+                                    {% if page.metafields.beach.list-of-beaches %}
+                                    <p class="beach-wedding-blurb__text">{{page.metafields.beach.list-of-beaches}}
+                                    </p>
+                                    {% endif%}
                                 </div>
                             </div>
-                            {% endif%}
                         </div>
+                        {% endif%}
                     </div>
+                </div>
             </section>
         </div>
         {% endif%}

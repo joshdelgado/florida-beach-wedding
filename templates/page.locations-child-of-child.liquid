@@ -2,20 +2,25 @@
     <section class="child-beach-page__block">
         <div class="grid grid-limit child-beach-page__intro-container">
             <h1 class="child-beach-page__heading">{{page.title}}</h1>
-            <div class="grid__item post-large--one-half">
-                <!-- <h2 class="child-beach-page__heading">{{page.metafields.beach.beach-main-heading}}</h2> -->
-                <div class="child-beach-page__main-description">
-                    <p>{{page.metafields.beach.beach-main-description}}</p>
-                </div>
-            </div>
-            <div class="grid__item post-large--one-half">
-                {% if page.metafields.beach.beach-main-image %}
-                <div class="child-beach-page__image"
-                    style="background-image: url( {{page.metafields.beach.beach-main-image}}">
-                </div>
+            {% if page.metafields.beach.beach-main-image == blank %}
+            <div class="grid grid-limit">
                 {% endif%}
+                {% if page.metafields.beach.beach-main-image %}
+                <div class="grid__item post-large--one-half">
+                    {% endif%}
+                    <div class="child-beach-page__main-description">
+                        <p>{{page.metafields.beach.beach-main-description}}</p>
+                    </div>
+                </div>
+
+                <div class="grid__item post-large--one-half">
+                    {% if page.metafields.beach.beach-main-image %}
+                    <div class="child-beach-page__image"
+                        style="background-image: url( {{page.metafields.beach.beach-main-image}}">
+                    </div>
+                    {% endif%}
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Additional Info Section -->
@@ -23,21 +28,36 @@
     <hr>
     <section class="child-beach-page__block">
         <div class="grid grid-limit child-beach-page__section-container">
+            {% if page.metafields.beach.second-info-section-image %}
             <div class="grid__item post-large--one-half">
-                <h2 class="child-beach-page__heading">{{page.metafields.beach.second-info-heading}}</h2>
-                <div class="child-beach-page__main-description">
-                    <p>{{page.metafields.beach.second-info-section}}</p>
-                </div>
-            </div>
-            <div class="grid__item post-large--one-half">
-                {% if page.metafields.beach.beach-main-image %}
+                {% if page.metafields.beach.second-info-section-image %}
                 <div class="child-beach-page__image"
                     style="background-image: url( {{page.metafields.beach.second-info-section-image}}">
                 </div>
                 {% endif%}
             </div>
-        </div>
+            {% endif%}
+            {% if page.metafields.beach.second-info-section-image == blank %}
+            <div class="grid__item">
+                {% endif%}
+                {% if page.metafields.beach.second-info-section-image %}
+                <div class="grid__item post-large--one-half">
+                    {% endif%}
+                    <h2 class="child-beach-page__heading">{{page.metafields.beach.second-info-heading}}</h2>
+                    <div class="child-beach-page__main-description">
+                        <p>{{page.metafields.beach.second-info-section}}</p>
+                    </div>
+                </div>
+            </div>
     </section>
+    {% endif%}
+
+    <!-- Video Section -->
+    {% if page.metafields.beach.beach-video-url %}
+    <div class="grid grid-limit child-beach-page__video">
+        <iframe width="1080" height="608" src="{{page.metafields.beach.beach-video-url}}" frameborder="0"
+            allowfullscreen=""></iframe>
+    </div>
     {% endif%}
 
     <!-- Wedding Packages -->
@@ -87,7 +107,7 @@
     {% for hotel in page.metafields.hotel.hotel-description %}
     {% if page.metafields.hotel.hotel-image %}
     <div class="grid grid-limit location-child__hotel">
-        <div class="grid__item post-large--one-half">
+        <div class="grid__item post-large--one-half location-child__other-info-content">
             {% if page.metafields.hotel.hotel-image %}
             <img src="{{page.metafields.hotel.hotel-image[forloop.index0]}}" alt="">
             {% endif%}
@@ -126,7 +146,7 @@
     {% for hotel in page.metafields.venue.venue-description %}
     {% if page.metafields.venue.venue-description %}
     <div class="grid grid-limit location-child__hotel">
-        <div class="grid__item post-large--one-half">
+        <div class="grid__item post-large--one-half location-child__other-info-content">
             {% if page.metafields.venue.venue-image %}
             <img src="{{page.metafields.venue.venue-image[forloop.index0]}}" alt="">
             {% endif%}
@@ -179,38 +199,37 @@
     <div class="child-beach-page">
         <section class="child-beach-page__block">
             <div class="grid grid-limit child-beach-page__locations-container">
+                {% if page.metafields.beach.list-of-beaches-img %}
                 <div class="grid__item post-large--one-half">
+                    {% endif%}
                     {% if page.metafields.beach.list-of-beaches-img %}
                     <div class="child-beach-page__image"
                         style="background-image: url( {{page.metafields.beach.list-of-beaches-img}}">
                     </div>
                     {% endif%}
                 </div>
-                {% if page.metafields.beach.list-of-beaches-img %}
-                <div class="grid__item post-large--one-half">
+                {% if page.metafields.beach.list-of-beaches-img == blank %}
+                <div class="grid grid-limit">
                     {% endif%}
-                    {% if page.metafields.beach.list-of-beaches-img == blank %}
-                    <div class="grid grid-limit">
-                        {% endif%}
-                        {% if page.metafields.beach.list-of-beaches %}
-                        <div class="beach-wedding-blurb">
-                            <div class="beach-wedding-blurb__container">
-                                <div class="beach-wedding-blurb__content">
-                                    {% if page.metafields.beach.locations-beach-list-heading %}
-                                    <h2 class="beach-wedding-blurb__subheading">
-                                        {{page.metafields.beach.locations-beach-list-heading}}
-                                    </h2>
-                                    {% endif%}
-                                    {% if page.metafields.beach.list-of-beaches %}
-                                    <p class="beach-wedding-blurb__text">{{page.metafields.beach.list-of-beaches}}
-                                    </p>
-                                    {% endif%}
-                                </div>
+                    {% if page.metafields.beach.list-of-beaches %}
+                    <div class="beach-wedding-blurb">
+                        <div class="beach-wedding-blurb__container">
+                            <div class="beach-wedding-blurb__content">
+                                {% if page.metafields.beach.locations-beach-list-heading %}
+                                <h2 class="beach-wedding-blurb__subheading">
+                                    {{page.metafields.beach.locations-beach-list-heading}}
+                                </h2>
+                                {% endif%}
+                                {% if page.metafields.beach.list-of-beaches %}
+                                <p class="beach-wedding-blurb__text">{{page.metafields.beach.list-of-beaches}}
+                                </p>
+                                {% endif%}
                             </div>
                         </div>
-                        {% endif%}
                     </div>
+                    {% endif%}
                 </div>
+            </div>
         </section>
     </div>
     {% endif%}
