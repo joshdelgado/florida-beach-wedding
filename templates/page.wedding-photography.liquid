@@ -1,28 +1,31 @@
 <div class="rte photography-page">
   <div class="grid grid-limit">
     <h1 class="photography-page__title">{{page.title}}</h2>
-    <div class="grid__item post-large--one-half">
-      <div class="photography-page__intro-image" style="background-image: url( {{page.metafields.photography.photography-image}}"></div>
-      <div class="photography-page__intro-text">
-        <p>{{page.metafields.photography.photography-intro-text}}</p>
+      <div class="grid__item post-large--one-half">
+        <div class="photography-page__intro-image"
+          style="background-image: url( {{page.metafields.photography.photography-image}}"></div>
+        <div class="photography-page__intro-text">
+          <p>{{page.metafields.photography.photography-intro-text}}</p>
+        </div>
       </div>
-    </div>
-    <div class="grid__item post-large--one-half">
-      <h2>{{page.metafields.photography.photography-main-heading}}</h1>
-      <p>{{page.metafields.photography.photography-main-text}}</p>
-    </div>
+      <div class="grid__item post-large--one-half">
+        <h2>{{page.metafields.photography.photography-main-heading}}
+    </h1>
+    <p>{{page.metafields.photography.photography-main-text}}</p>
   </div>
+</div>
 
-  <div class="grid grid-limit photography-page__gallery">
-    <h2 class="photography-page__gallery-heading">{{page.metafields.photography.photography-gallery-heading}}</h1>
-    <ul class="photography-page__image-list">
-      {% for image in page.metafields.photography.photography-gallery-image %}
-      <li class="photography-page__image">
-        {% if page.metafields.photography.photography-gallery-image %}
-        <img src="{{page.metafields.photography.photography-gallery-image[forloop.index0]}}" alt="">
-        {% endif%}
-      </li>
-      {% endfor%}
-    </ul>
-  </div>
+<!-- Gallery Images -->
+<div class="grid grid-limit photography-page__gallery">
+  <h2 class="photography-page__gallery-heading">{{page.metafields.photography.photography-gallery-heading}}</h2>
+  <ul class="photography-page__image-list">
+    {% for image in page.metafields.photography.photography-gallery-image %}
+    <li class="photography-page__image">
+      {% if page.metafields.photography.photography-gallery-image %}
+      <img src="{{page.metafields.photography.photography-gallery-image[forloop.index0]}}" alt="">
+      {% endif%}
+    </li>
+    {% endfor%}
+  </ul>
+</div>
 </div>

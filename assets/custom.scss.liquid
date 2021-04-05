@@ -7,6 +7,8 @@ $siteWidth: 1030px;
 // General
 
 @import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import url('/assets/ElegantIcons.scss.css');
+@import url('/assets/ElegantIcons.svg');
 
 .grid-limit {
   max-width: $siteWidth;
@@ -204,8 +206,12 @@ $siteWidth: 1030px;
 // Location child
 
 .location-child-page {
+  margin-bottom: 2rem;
   .locations__wrapper {
     margin-top: 2rem;
+    &.clearwater-other-beaches {
+      padding-left: 2rem;
+    }
   }
   .location-child-page__block {
     .location-child-page__intro-container {
@@ -226,8 +232,15 @@ $siteWidth: 1030px;
   .location-child__package-container {
     display: flex;
     flex-wrap: wrap;
-    // justify-content: space-between;
     margin: 2rem 0;
+    &.clearwater {
+      .location-child__package {
+        width: calc((100% / 3) - 1rem);
+        .location-child__package-image {
+          height: 217px;
+        }
+      }
+    }
   }
   .location-child__package {
     width: calc((100% / 2) - 1rem);
@@ -245,12 +258,30 @@ $siteWidth: 1030px;
     background-size: cover;
     background-position: center;
   }
+  .location-child__hotel-intro {
+    .location-child__hotel-intro-heading {
+      margin-top: 2rem;
+    }
+  }
+  .location-child__hotel {
+    display: flex;
+    margin-top: 1rem;
+    align-items: center;
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
   .location-child__other-info {
-    // margin: 2rem;
-    // margin-left: 0;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
   }
   .location-child__other-info-content {
-    margin-top: 1rem;
+    padding-right: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
   .location-child__other-info-image-only {
     display: flex;
@@ -259,8 +290,145 @@ $siteWidth: 1030px;
       height: 300px;
     }
   }
+  .location-child__gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    align-items: center;
+    margin: 0 2rem;
+  }
+  .location-child__gallery-image {
+    height: 200px;
+    flex-grow: 1;
+    list-style-type: none;
+    margin-bottom: 0;
+    img {
+      max-height: 100%;
+      min-width: 100%;
+      object-fit: cover;
+    }
+  }
 }
 
+// Child of Child Beach Location
+
+.child-beach-page {
+  margin: 0 2rem 2rem;
+  .child-beach-page__heading {
+    text-align: center;
+  }
+  .child-beach-page__image {
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .child-beach-page__video {
+    height: auto;
+    width: 600px;
+    padding-top: 3rem;
+  }
+  .child-beach-page__section-container {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  .child-beach-page__locations-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    .post-large--one-half {
+      width: 100%;
+    }
+    .beach-wedding-blurb {
+      margin-left: 1rem !important;
+    }
+    .child-beach-page__image {
+      height: 500px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 100%;
+      background-position: left;
+    }
+    .beach-wedding-blurb {
+      width: 100%;
+    }
+    .beach-wedding-blurb__container {
+      width: 100%;
+    }
+  }
+}
+
+// Contact Us Banner
+.contact-us-banner {
+  background-color: #f4f4f4;
+  padding: 1.3rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 2rem !important;
+  width: 78.3%;
+  border: 1px solid #ccc;
+}
+
+// Contact Us Page
+.contact-page {
+  .section-header {
+    border-bottom: 1px solid #333;
+    margin-bottom: 2rem;
+    .section-header--title {
+      text-align: center;
+      font-size: 3rem;
+    }
+  }
+  .contact-page__info {
+    display: flex;
+    padding: 2rem 0;
+    .beach-wedding-blurb {
+      display: flex;
+      flex-direction: column;
+      img {
+        max-width: 125px;
+        margin: auto;
+      }
+    }
+    .beach-wedding-blurb__container {
+      width: 100%;
+      .beach-wedding-blurb__subheading {
+        border-bottom: 1px dotted #333;
+      }
+    }
+  }
+  .contact-page__form-container {
+    margin-left: 2rem;
+    width: 100%;
+    h3 {
+      text-align: left;
+    }
+  }
+  .contact-page__other-info {
+    margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    .grid__item {
+      padding-left: 0;
+      width: calc(50% - .5rem);
+    }
+  }
+  .contact-page__other-image {
+    margin-right: .5rem;
+  }
+  .contact-page__other-description {
+    margin-left: .5rem;
+  }
+  .contact-page__image {
+    height: 600px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
 
 // Location Box
 .location-box{
@@ -396,8 +564,6 @@ $siteWidth: 1030px;
   .about-page__member-image {
     max-width: 100%;
   }
-  .about-page__member-info {
-  }
   .about-page__member-title {
     font-size: 12px;
     margin: 0;
@@ -418,6 +584,19 @@ $siteWidth: 1030px;
       width: 49%;
       margin: 0 0 auto;
       margin-bottom: 1rem;
+      position: relative;
+      // &.icon_quotations_alt2:before {
+      //   content: "\7c";
+      //   font-size: 32px;
+      //   font-family: 'ElegantIcons';
+      //   left: 50%;
+      //   position: absolute;
+      //   top: -16px;
+      //   background: #f5f5f5;
+      //   margin-left: -16px;
+      //   border-radius: 31px;
+      //   z-index: 2;
+      // }
       .about-page__testimonial-text {
         font-size: 12px;
         line-height: 1.5;
@@ -507,8 +686,6 @@ $siteWidth: 1030px;
   .photography-page__intro-text {
     margin: 1rem 0;
   }
-  .photography-page__gallery {
-  }
   .photography-page__gallery-heading {
     text-align: center;
   }
@@ -535,6 +712,60 @@ $siteWidth: 1030px;
 
 // FAQs
 .faqs-page {
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    padding: 0 2rem;
+    max-width: 700px;
+  
+    .inner {
+        overflow: hidden;
+        display: none;
+        border: 1px solid #c5e0dc;
+        border-top: none;
+        margin: 0;
+        padding: 1rem;
+      
+        &.show {
+          /*display: block;*/
+        }
+    }
+  
+    li {
+        margin: .5em 0;
+        list-style-type: none;
+      
+        a.toggle {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #c5e0dc;
+            color: #333;
+            padding: .75em;
+            transition: all .5s ease-in-out;
+          
+            &:hover {
+                background: #c5e0dc;
+            }
+            &:after {
+              content: "+";
+              font-size: 11px;
+              color: #c5e0dc;
+              height: 20px;
+              width: 20px;
+              text-align: center;
+              border-radius: 50%;
+              background-color: #8c8c8b;
+              min-width: 20px;
+            }
+        }
+    }
+}
+
+
   .faqs__images {
     display: flex;
     justify-content: center;
@@ -547,31 +778,6 @@ $siteWidth: 1030px;
       max-width: 80%;
       margin: auto;
   }
-}
-
-// Accordion
-.accordion {
-  background-color: #c5e0dc;
-  color: #444;
-  cursor: pointer;
-  padding: .5rem;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
-  margin: .25rem 0;
-}
-
-.active, .accordion:hover {
-  background-color: #3dba9d;
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
 }
 
 // Wedding Photography page
@@ -644,14 +850,63 @@ $siteWidth: 1030px;
           width: 100%;
         }
       }
-      .location-child__package-header {
+    }
+    .location-child__hotel-intro {
+      padding: 0 2rem;
+    }
+    .location-child__other-info-content {
+      padding-top: 1rem;
+    }
+  }
+  .child-beach-page {
+    .child-beach-page__locations-container {
+    display: flex;
+    flex-wrap: wrap;
+      .child-beach-page__image {
+        background-position: center;
+        margin-bottom: 1rem;
       }
     }
-    .location-child__package-container {
-      margin: 0 2rem;
+    .location-child__hotel {
+      flex-wrap: wrap;
+    }
+  }
+  .contact-page {
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 2rem;
+    .contact-page__info {
+      margin-bottom: 2rem;
+      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      .beach-wedding-blurb {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 2rem;
+        img {
+          margin-top: 2rem;
+        }
+      }
+    }
+    .contact-page__form-container {
+      margin: 0;
+    }
+    .contact-page__other-info {
+      flex-wrap: wrap;
+      flex-direction: column;
+      .grid__item {
+        width: 100%;
+      }
+    }
+    .contact-page__other-description {
+      margin-top: 2rem;
     }
   }
 }
+
+
 
 @media screen and (max-width: 767px) {
   .about-page {
@@ -681,15 +936,30 @@ $siteWidth: 1030px;
       }
     }
     .location-child__package-container {
+      display: flex;
+      flex-wrap: wrap;
       .location-child__package {
         width: 100%;
+        margin: 1rem 2rem;
       }
+      &.clearwater {
+        margin: 0 0 0 2rem;
+        .location-child__package {
+          width: calc((100% / 2) - 1rem);
+        }
+      }
+    }
+    .location-child__hotel {
+      flex-wrap: wrap;
+    }
+    .location-child__other-info {
+      flex-wrap: wrap;
     }
   }
 
   .photography-page {
     .photography-page__image {
-      height: 150px;
+      height: 100%;
     }
   }
 }
@@ -714,6 +984,16 @@ $siteWidth: 1030px;
   .locations-page {
     .locations__block {
       padding: 0px 2.5rem;
+    }
+  }
+
+  .location-child-page {
+    .location-child__package-container {
+      &.clearwater {
+        .location-child__package {
+          width: 100%;
+        }
+      }
     }
   }
 }
