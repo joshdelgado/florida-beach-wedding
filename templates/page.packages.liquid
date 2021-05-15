@@ -8,12 +8,14 @@
     </div>
   </div>
   <div class="grid grid-limit packages-page__block">
-    {% for package in page.metafields.package.package-name %}
+    {% for package in page.metafields.package-cards.package-name %}
     <div class="grid__item post-large--one-half">
-      <div class="location-box" style="background-image: url( {{page.metafields.package.package-bg-image[forloop.index0]}}">
-        <a class="location-box__inner" href="{{routes.site_url}}{{page.metafields.package.package-link[forloop.index0]}}">
+      <div class="location-box"
+        style="background-image: url( {{page.metafields.package.package-bg-image[forloop.index0]}}">
+        <a class="location-box__inner"
+          href="{{routes.site_url}}{{page.metafields.package.package-link[forloop.index0]}}">
           <div>
-            <h2 class="location-box__title">{{page.metafields.package.package-name[forloop.index0]}}</h2>
+            <h2 class="location-box__title">{{page.metafields.package-cards.package-name[forloop.index0]}}</h2>
             <span class="location-box__button">View Location</span>
           </div>
         </a>
