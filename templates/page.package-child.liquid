@@ -51,21 +51,21 @@
       <div class="grid__item post-large--one-third">
         <div class="border-box">
           <h4 class="border-box__title">Use Drop Down For Pricing</h4>
-          <form class="border-box__form">
-            <select name="search_type" id="price-dropdown-select">
-              <option disabled="disabled" selected="selected" value="">Click To Select Your Location</option>
-              <option value="$2095.00">Clearwater & St. Petersburg Beach</option>
-              <option value="$1850.00">Cocoa & Port Canaveral Beach</option>
-              <option value="$1995.00">St. Augustine & Jacksonville Beach</option>
-              <option value="$2350.00">Miami & Ft. Lauderdale Beach</option>
-              <option value="$2095.00">Siesta Key & Lido Beach</option>
-              <option value="$1850.00">Daytona, Ponce Inlet & New Smyrna Beach</option>
-              <option value="$2350.00">Destin & Panama City Beach</option>
-              <option value="$2350.00">Fort Myers</option>
-            </select>
-            <span id="package-price" class="border-box__amount"></span>
-          </form>
+          {% render "location-dropdown" %}
           <p class="border-box__text">*Does not include any permit or parking fees that may be required</p>
+          {% if template contains 'page' and page.url == '/pages/florida-beach-beginnings-package'%}
+          <br>
+          <p class="border-box__text">*Additional charges apply for Friday – Sunday</p>
+          {% endif%}
+          {% if template contains 'page' and page.url == '/pages/natural-simply-florida-package'%}
+          <br>
+          <p class="border-box__text">*$200+ additional fee for Friday thru Sunday Weddings</p>
+          {% endif%}
+          {% if template contains 'page' and page.url == '/pages/florida-heart-in-the-sand'%}
+          <br>
+          <p class="border-box__text">*Not valid on Holidays or Holiday Weekends. Additional fees apply for popular
+            dates.</p>
+          {% endif%}
         </div>
       </div>
       <div class="grid__item post-large--one-third">

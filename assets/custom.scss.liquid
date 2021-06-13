@@ -23,6 +23,18 @@ $siteWidth: 1030px;
   font-size: 1.25rem;
 }
 
+.button {
+  color: {{ settings.color_button_primary_text }};
+  background-color: {{ settings.color_primary }};
+  padding: .5rem;
+  border: none;
+  transition: .3s;
+
+  &:hover {
+    background-color: #a8dad3;
+  }
+}
+
 .main-content {
   a {
     color: #3dba9d;
@@ -50,6 +62,65 @@ $siteWidth: 1030px;
 
 .main-content:after {
   padding: 0;
+}
+
+// Home Page
+.home {
+  .home__content {
+    padding: 2rem 0;
+  }
+  .home__section {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .home__section-item {
+    padding: .5rem;
+    width: calc(100%/3);
+  }
+  .home__item-title {
+    margin-top: 1rem;
+  }
+  .home__section-button {
+
+  }
+  .home__package-content {
+    padding: 2rem 0;
+  }
+  .home__title {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  .home__subtitle {
+    text-align: left;
+  }
+  .home__text-section {
+    padding: 2rem 0;
+  }
+  .home__gallery {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+
+    img {
+      height: 300px;
+    }
+  }
+  .home__locations {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    text-align: center;
+    img {
+      height: 200px;
+      margin-bottom: 1rem;
+    }
+  }
+  .home__location-item {
+    width: calc(100%/3);
+  }
 }
 
 // Packages Page
@@ -830,6 +901,12 @@ $siteWidth: 1030px;
 // Media Queries
 
 @media screen and (max-width: 1024px) {
+  .home {
+    .home__half-block {
+      padding: 2rem;
+    }
+  }
+
   .about-page {
     img {
       height: 100%;
@@ -999,6 +1076,37 @@ $siteWidth: 1030px;
 }
 
 @media screen and (max-width: 568px) {
+  .home {
+    .home__section {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+    .home__section-item {
+      width: 100%;
+    }
+    .home__locations {
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center;
+      img {
+        height: auto;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+    }
+    .home__location-item {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      margin: 1.5rem 1rem;
+    }
+    .home__gallery {
+      flex-wrap: wrap;
+      img {
+        margin: 1rem;
+      }
+    }
+  }
   .about-page {
     .about-page__image {
       width: 100%;
