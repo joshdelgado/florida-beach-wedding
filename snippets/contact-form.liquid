@@ -1,0 +1,80 @@
+<!-- Contact Form -->
+
+<div class="grid grid-limit contact-form-snippet">
+    <div class="contact-page__form-container">
+        <h3>Contact us about your Florida Beach Wedding Ceremony</h3>
+        <div class="contact-page__form">
+            {% form 'contact' %}
+            {% if form.posted_successfully? %}
+            <p class="note form-success">
+                {{ 'contact.form.post_success' | t }}
+            </p>
+            {% endif %}
+            {{ form.errors | default_errors }}
+
+            {% assign name_attr = 'contact.form.name' | t | handle %}
+            <label for="ContactFormName" class="label--hidden">{{ 'contact.form.name' | t }}</label>
+            <input type="text" id="ContactFormName" name="contact[{{ 'contact.form.name' | t }}]"
+                placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words"
+                value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                required>
+
+            <label for="ContactFormEmail" class="label--hidden">{{ 'contact.form.email' | t }}</label>
+            <input type="email" id="ContactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}"
+                autocorrect="off" autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required>
+
+            {% assign name_attr = 'contact.form.phone' | t | handle %}
+            <label for="ContactFormPhone" class="label--hidden">{{ 'contact.form.phone' | t }}</label>
+            <input type="tel" id="ContactFormPhone" name="contact[{{ 'contact.form.phone' | t }}]"
+                placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9\-]*"
+                value="{% if form[name_attr] %}{{ form[name_attr] }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                required>
+
+            <label for="ContactFormDate" class="label--hidden">Wedding Date</label>
+            <input type="text" id="ContactFormDate" name="contact[Wedding Date]" placeholder="Wedding Date" required>
+
+            <label for="ContactFormCity" class="label--hidden">City of Beach Wedding</label>
+            <input type="text" id="ContactFormCity" name="contact[City of Beach Wedding]"
+                placeholder="City of Beach Wedding" required>
+
+            <label for="ContactFormGuests" class="label--hidden">Approximate Number of Guests</label>
+            <input type="text" id="ContactFormGuests" name="contact[Approximate Number of Guests]"
+                placeholder="Approximate Number of Guests" required>
+
+            <label for="ContactFormPackage" class="label--hidden">Beach Wedding Package You're Interested In</label>
+            <select name="contact[Beach Wedding Package]" id="ContactFormPackage">
+                <option value="Beach Wedding Package You're Interested In" disabled selected>Beach Wedding Package
+                    You're
+                    Interested In</option>
+                <option value="Rustic Geometric Arch">Rustic Geometric Arch</option>
+                <option value="Rustic Romance Package">Rustic Romance Package</option>
+                <option value="Tropical Geometric Arch">Tropical Geometric Arch</option>
+                <option value="Tropical Distinctive Design Package">Tropical Distinctive Design Package</option>
+                <option value="Floral Distinctive Design Package">Floral Distinctive Design Package</option>
+                <option value="Teal Distinctive Design Package">Teal Distinctive Design Package</option>
+                <option value="Classic Distinctive Design Package">Classic Distinctive Design Package</option>
+                <option value="Anchors Away Distinctive Design Package">Anchors Away Distinctive Design Package</option>
+                <option value="Coral Design Package">Coral Design Package</option>
+                <option value="Natural Design Package">Natural Design Package</option>
+                <option value="Dusty Blue Distinctive Design Package">Dusty Blue Distinctive Design Package</option>
+                <option value="Beach Bliss Distinctive Design Package">Beach Bliss Distinctive Design Package</option>
+                <option value="Starfish Bliss Distinctive Design Package">Starfish Bliss Distinctive Design Package
+                </option>
+                <option value="Destiny Package">Destiny Package</option>
+                <option value="Nautical Knot Package">Nautical Knot Package</option>
+                <option value="Beach Beginnings Package">Beach Beginnings Package</option>
+                <option value="Simply Florida Package">Simply Florida Package</option>
+                <option value="Daytona Heart In The Sand Package">Daytona Heart In The Sand Package</option>
+            </select>
+
+            <label for="ContactFormMessage" class="label--hidden">{{ 'contact.form.message' | t }}</label>
+            <textarea rows="10" id="ContactFormMessage" name="contact[{{ 'contact.form.message' | t }}]"
+                placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+
+            <input type="submit" class="btn right" value="{{ 'contact.form.send' | t }}">
+
+            {% endform %}
+        </div>
+    </div>
+</div>

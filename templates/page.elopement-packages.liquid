@@ -1,0 +1,48 @@
+<div class="rte elopement-page">
+    <div class="grid grid-limit elopement-page__block elopement-page__block--one">
+        <h1 class="elopement-page__title">{{ page.title }}</h1>
+
+        <div class="elopement-page__boxes">
+            {% for package in page.metafields.elopement.elopement-package-names %}
+            <div class="grid__item post-large--one-third">
+                <div class="location-box"
+                    style="background-image: url( {{page.metafields.elopement.elopement-image[forloop.index0]}}">
+                    <a class="location-box__inner" href="{{page.metafields.elopement.elopement-link[forloop.index0]}}">
+                        <div>
+                            <h2 class="location-box__title">
+                                {{page.metafields.elopement.elopement-package-names[forloop.index0]}}
+                            </h2>
+                            <span class="location-box__button">View Package</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="elopement-page__section grid grid-limit">
+        <h2 class="elopement-page__heading">The ABC’s of Beach Elopements in Florida:</h2>
+        <h2 class="elopement-page__title">{{page.metafields.elopement.elopement-title-1}}</h2>
+        <p class="elopement-page__text">{{page.metafields.elopement.elopement-text-1}}</p>
+        <img src="https://cdn.shopify.com/s/files/1/0057/7434/4238/t/4/assets/acf.DaytonaBeachKissing.jpg?v=1638221458"
+            alt="" class="elopement-page__image" />
+
+        <h2 class="elopement-page__title">{{page.metafields.elopement.elopement-title-2}}</h2>
+        <p class="elopement-page__text">{{page.metafields.elopement.elopement-text-2}}</p>
+        <img src="https://cdn.shopify.com/s/files/1/0057/7434/4238/t/4/assets/acf.sunsetbeachwedddingelopement-scaled.jpg?v=1638221476"
+            alt="" class="elopement-page__image" />
+
+        <h2 class="elopement-page__title">{{page.metafields.elopement.elopement-title-3}}</h2>
+        <p class="elopement-page__text">{{page.metafields.elopement.elopement-text-3}}</p>
+
+        <img src="https://cdn.shopify.com/s/files/1/0057/7434/4238/t/4/assets/acf.7-e1582049816193.jpg?v=1638221513"
+            alt="" class="elopement-page__image" />
+
+        <img src="https://cdn.shopify.com/s/files/1/0057/7434/4238/t/4/assets/acf.5937_e-scaled.jpg?v=1638221540" alt=""
+            class="elopement-page__image" />
+
+        <!-- Contact Form -->
+        {% render "contact-form" %}
+    </div>
+</div>

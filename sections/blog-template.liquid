@@ -4,69 +4,68 @@
 <header class="section-header blog-page__header">
   <h1 class="section-header__title blog-page__title">
     {% if current_tags %}
-      {{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}
+    {{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}
     {% else %}
-      {{ blog.title }}
+    {{ blog.title }}
     {% endif %}
   </h1>
-  <p class="blog-page__subtitle">A <a href="https://www.feedspot.com/infiniterss.php?followfeedid=5094549&q=site:https%3A%2F%2Ffloridabeachweddings.com%2Ffeed">Feedspot Top 40</a> Destination Wedding Blog for 2020</p>
+  <p class="blog-page__subtitle">A <a
+      href="https://www.feedspot.com/infiniterss.php?followfeedid=5094549&q=site:https%3A%2F%2Ffloridabeachweddings.com%2Ffeed">Feedspot
+      Top 40</a> Destination Wedding Blog for 2020</p>
 </header>
 
-<div class="grid">
-    {% for article in blog.articles %}
-      <div class="grid__item post-large--one-half">
-        <a href="{{ article.url }}" class="blog-article">
-          <div class="blog-article__image">
-            {% if article.image %}
-              {% capture img_id %}ArticleImage-{{ section.id }}--{{ article.image.id }}{% endcapture %}
-              {% capture wrapper_id %}ArticleImageWrapper-{{ section.id }}--{{ article.image.id }}{% endcapture %}
-              {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-              {%- assign image_alt = article.title | escape -%}
-              {% include 'image-style' with image: article.image, width: 845, height: 1024, wrapper_id: wrapper_id, img_id: img_id %}
-              <div id="{{ wrapper_id }}" class="article__image-wrapper supports-js">
-                <div>
-                  <img id="{{ img_id }}"
-                       class="article__image lazyload"
-                       src="{{ article.image | img_url: '300x300' }}"
-                       data-src="{{ img_url }}"
-                       data-widths="[90, 120, 150, 180, 360, 480, 600, 750, 940, 1080, 1296]"
-                       data-aspectratio="{{ article.image.aspect_ratio }}"
-                       data-sizes="auto"
-                       alt="{{ image_alt }}">
-                </div>
-              </div>
+<div class="grid blog-page_blogs-container">
+  {% for article in blog.articles %}
+  <div class="grid__item post-large--one-half">
+    <a href="{{ article.url }}" class="blog-article">
+      <div class="blog-article__image">
+        {% if article.image %}
+        {% capture img_id %}ArticleImage-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+        {% capture wrapper_id %}ArticleImageWrapper-{{ section.id }}--{{ article.image.id }}{% endcapture %}
+        {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {%- assign image_alt = article.title | escape -%}
+        {% include 'image-style' with image: article.image, width: 845, height: 1024, wrapper_id: wrapper_id, img_id:
+        img_id %}
+        <div id="{{ wrapper_id }}" class="article__image-wrapper supports-js">
+          <div>
+            <img id="{{ img_id }}" class="article__image lazyload" src="{{ article.image | img_url: '300x300' }}"
+              data-src="{{ img_url }}" data-widths="[90, 120, 150, 180, 360, 480, 600, 750, 940, 1080, 1296]"
+              data-aspectratio="{{ article.image.aspect_ratio }}" data-sizes="auto" alt="{{ image_alt }}">
+          </div>
+        </div>
 
-              <noscript>
-                <p>{{ article | img_url: '1024x1024' | img_tag: image_alt, 'article__image' | link_to: article.url }}</p>
-              </noscript>
-            {% endif %}
-          </div>
-          <div class="blog-article__content">
-            <h2 class="blog-article__title">{{ article.title }}</h2>
-            <div class="blog-article__meta">
-              {% if section.settings.blog_author_enable %}
-                by <span class="blog-article__author">{{ article.author }}</span> |
-              {% endif %}
-              {% if article.published_at %}
-                <time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ article.published_at | date: format: 'date' }}</time>
-              {% endif %}
-            </div>
-            {% if article.excerpt.size > 0 %}
-              {{ article.excerpt }}
-            {% else %}
-              <p class="blog-article__excerpt">{{ article.content | strip_html | truncatewords: 60 }}</p>
-            {% endif %}
-          </div>
-        </a>
+        <noscript>
+          <p>{{ article | img_url: '1024x1024' | img_tag: image_alt, 'article__image' | link_to: article.url }}</p>
+        </noscript>
+        {% endif %}
       </div>
-    {% endfor %}
+      <div class="blog-article__content">
+        <h2 class="blog-article__title">{{ article.title }}</h2>
+        <div class="blog-article__meta">
+          {% if section.settings.blog_author_enable %}
+          by <span class="blog-article__author">{{ article.author }}</span> |
+          {% endif %}
+          {% if article.published_at %}
+          <time datetime="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}">{{ article.published_at | date:
+            format: 'date' }}</time>
+          {% endif %}
+        </div>
+        {% if article.excerpt.size > 0 %}
+        {{ article.excerpt }}
+        {% else %}
+        <p class="blog-article__excerpt">{{ article.content | strip_html | truncatewords: 60 }}</p>
+        {% endif %}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
 </div>
 <div class="grid">
   <div class="grid__item">
     {% if paginate.pages > 1 %}
-      <div class="text-center">
-        {% include 'pagination-custom' %}
-      </div>
+    <div class="text-center">
+      {% include 'pagination-custom' %}
+    </div>
     {% endif %}
   </div>
 </div>
@@ -77,57 +76,57 @@
 
 {% schema %}
 {
-  "name": {
-    "cs": "Blog",
-    "da": "Blog",
-    "de": "Blog",
-    "en": "Blog",
-    "es": "Blog",
-    "fi": "Blogi",
-    "fr": "Blog",
-    "it": "Blog",
-    "ja": "ブログ",
-    "ko": "블로그",
-    "nb": "Blogg",
-    "nl": "Blog",
-    "pl": "Blog",
-    "pt-BR": "Blog",
-    "pt-PT": "Blogue",
-    "sv": "Blogg",
-    "th": "บล็อก",
-    "tr": "Blog",
-    "vi": "Blog",
-    "zh-CN": "博客",
-    "zh-TW": "部落格"
-  },
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "blog_author_enable",
-      "label": {
-        "cs": "Zobrazit autora příspěvku na blogu",
-        "da": "Vis forfatter af blogopslag",
-        "de": "Autor eines Blog-Beitrags anzeigen",
-        "en": "Show blog post author",
-        "es": "Mostrar autor del artículo del blog",
-        "fi": "Näytä blogikirjoituksen tekijä",
-        "fr": "Afficher l'auteur de l'article de blog",
-        "it": "Mostra autore articolo del blog",
-        "ja": "ブログ記事の執筆者を表示する",
-        "ko": "블로그 게시물 작성자 표시",
-        "nb": "Vis forfatter av blogginnlegg",
-        "nl": "Toon auteur van blogpost",
-        "pl": "Pokaż autora posta na blogu",
-        "pt-BR": "Exibir autor do post do blog",
-        "pt-PT": "Mostrar autor(a) da publicação no blogue",
-        "sv": "Visa blogginläggets författare",
-        "th": "แสดงผู้เขียนโพสต์บล็อก",
-        "tr": "Blog gönderisinin yazarını göster",
-        "vi": "Hiển thị tác giả bài viết blog",
-        "zh-CN": "显示博客文章作者",
-        "zh-TW": "顯示部落格貼文作者"
-      }
-    }
-  ]
+"name": {
+"cs": "Blog",
+"da": "Blog",
+"de": "Blog",
+"en": "Blog",
+"es": "Blog",
+"fi": "Blogi",
+"fr": "Blog",
+"it": "Blog",
+"ja": "ブログ",
+"ko": "블로그",
+"nb": "Blogg",
+"nl": "Blog",
+"pl": "Blog",
+"pt-BR": "Blog",
+"pt-PT": "Blogue",
+"sv": "Blogg",
+"th": "บล็อก",
+"tr": "Blog",
+"vi": "Blog",
+"zh-CN": "博客",
+"zh-TW": "部落格"
+},
+"settings": [
+{
+"type": "checkbox",
+"id": "blog_author_enable",
+"label": {
+"cs": "Zobrazit autora příspěvku na blogu",
+"da": "Vis forfatter af blogopslag",
+"de": "Autor eines Blog-Beitrags anzeigen",
+"en": "Show blog post author",
+"es": "Mostrar autor del artículo del blog",
+"fi": "Näytä blogikirjoituksen tekijä",
+"fr": "Afficher l'auteur de l'article de blog",
+"it": "Mostra autore articolo del blog",
+"ja": "ブログ記事の執筆者を表示する",
+"ko": "블로그 게시물 작성자 표시",
+"nb": "Vis forfatter av blogginnlegg",
+"nl": "Toon auteur van blogpost",
+"pl": "Pokaż autora posta na blogu",
+"pt-BR": "Exibir autor do post do blog",
+"pt-PT": "Mostrar autor(a) da publicação no blogue",
+"sv": "Visa blogginläggets författare",
+"th": "แสดงผู้เขียนโพสต์บล็อก",
+"tr": "Blog gönderisinin yazarını göster",
+"vi": "Hiển thị tác giả bài viết blog",
+"zh-CN": "显示博客文章作者",
+"zh-TW": "顯示部落格貼文作者"
+}
+}
+]
 }
 {% endschema %}

@@ -1,0 +1,106 @@
+<div class="rte vow-renewal">
+    <div class="grid grid-limit vow-renewal__intro">
+        <h1 class="vow-renewal__title">{{page.metafields.vows.vows-page-heading}}</h1>
+        <div class="vow-renewal__intro-content">
+            <div class="grid__item post-large--one-third">
+                <div class="vow-renewal__intro-image"
+                    style="background-image: url( {{page.metafields.vows.vows-intro-image-1}}">
+                </div>
+            </div>
+            <div class="grid__item post-large--one-third">
+                <h2 class="vow-renewal__heading">{{page.metafields.location.location-name}}</h2>
+                <div class="vow-renewal__main-description">
+                    <p>{{page.metafields.vows.vows-intro-text}}</p>
+                </div>
+            </div>
+            <div class="grid__item post-large--one-third">
+                <div class="vow-renewal__intro-image"
+                    style="background-image: url( {{page.metafields.vows.vows-intro-image-2}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-limit vow-renewal__main-content">
+        <div class="vow-renewal__section">
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__image"
+                    style="background-image: url( {{page.metafields.vows.vow-renewal-image-1}}">
+                </div>
+            </div>
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__main-description">
+                    <p>{{page.metafields.vows.vow-renewal-text-1}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vow-renewal__section">
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__image"
+                    style="background-image: url( {{page.metafields.vows.vow-renewal-image-2}}">
+                </div>
+            </div>
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__main-description">
+                    <p>{{page.metafields.vows.vow-renewal-text-2}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vow-renewal__section">
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__image"
+                    style="background-image: url( {{page.metafields.vows.vow-renewal-image-3}}">
+                </div>
+            </div>
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__main-description">
+                    <p>{{page.metafields.vows.vow-renewal-text-3}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="vow-renewal__section">
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__image"
+                    style="background-image: url( {{page.metafields.vows.vow-renewal-image-4}}">
+                </div>
+            </div>
+            <div class="grid__item post-large--one-half">
+                <div class="vow-renewal__main-description">
+                    <p>{{page.metafields.vows.vow-renewal-text-4}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Images -->
+    {% if page.metafields.photography.photography-gallery-image %}
+    <hr>
+    <div class="grid grid-limit vow-renewal__gallery">
+        <h2 class="vow-renewal__gallery-heading">
+            {{page.metafields.photography.photography-gallery-heading}}
+        </h2>
+        <ul class="vow-renewal__gallery-list">
+            {% for image in page.metafields.photography.photography-gallery-image %}
+            <li class="vow-renewal__gallery-image">
+                {% if page.metafields.photography.photography-gallery-image %}
+                <img src="{{page.metafields.photography.photography-gallery-image[forloop.index0]}}" alt="">
+                {% endif%}
+            </li>
+            {% endfor%}
+        </ul>
+    </div>
+    {% endif%}
+
+    <!-- FAQs -->
+    <div class="grid grid-limit vow-renewal__faqs">
+        <p class="vow-renewal__questions">
+            {{page.metafields.vows.vows-faqs}}
+        </p>
+        <!-- Contact Form -->
+        {% render "contact-form" %}
+    </div>
+
+</div>

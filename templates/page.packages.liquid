@@ -16,7 +16,7 @@
           href="{{routes.site_url}}{{page.metafields.package.package-link[forloop.index0]}}">
           <div>
             <h2 class="location-box__title">{{page.metafields.package-cards.package-name[forloop.index0]}}</h2>
-            <span class="location-box__button">View Location</span>
+            <span class="location-box__button">View Package</span>
           </div>
         </a>
       </div>
@@ -40,9 +40,7 @@
       <h2 class="packages-page__heading">{{page.metafields.third-block.heading}}</h2>
       {% endif%}
       {{page.metafields.third-block.text}}
-      <div class="packages-page__footer-button-area">
-        <a href="mailto:pam@floridabeachweddings.com" class="jds-button">Send Email Now</a>
-      </div>
+      {% render "contact-form" %}
     </div>
   </div>
 </div>

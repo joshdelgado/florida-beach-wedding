@@ -2190,8 +2190,13 @@ $socialIconFontStack: "icons";
 
 /*================ Module | Site Header ================*/
 .site-header {
-  padding: 40px 0;
+  padding: 1rem;
   background-color: $colorHeader;
+
+  @media (max-width: 768px) {
+    border-bottom: 1px solid #333;
+    margin-bottom: 2rem;
+  }
 
   @include at-query ($min, $large) {
     padding: $gutter 0;

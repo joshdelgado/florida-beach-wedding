@@ -1,0 +1,28 @@
+<div class="rte selections">
+    <div class="grid grid-limit selections__intro">
+        <h1 class="selections__title">{{ page.title }}</h1>
+        <div class="selections__text">{{ page.content }}</div>
+
+        {% for title in page.metafields.selections.selections-title %}
+        <div class="selections__content">
+            <h2 class="selections__title">{{page.metafields.selections.selections-title[forloop.index0]}}</h2>
+            <p class="selections__text">{{page.metafields.selections.selections-text[forloop.index0]}}</p>
+        </div>
+        {% endfor %}
+
+        <div class="selections__image-container">
+            {% for selection in page.metafields.selections.selections-image %}
+            <div class="selections__image-caption-wrap">
+                {% if page.metafields.selections.selections-image %}
+                <img src="{{page.metafields.selections.selections-image[forloop.index0]}}" class="selections__image"
+                    alt="">
+                {% endif%}
+                <p class="selections__image-caption">
+                    {{page.metafields.selections.selections-image-caption[forloop.index0]}}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>

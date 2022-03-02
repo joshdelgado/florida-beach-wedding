@@ -167,12 +167,8 @@
     {% endif%}
     {% endfor %}
 
-    <!-- Contact Us Banner (or eventually form) -->
-    {% if page.metafields.beach.beach-contact-info %}
-    <a href="https://eleven-cbd.myshopify.com/pages/contact-us">
-        <h3 class="contact-us-banner grid grid-limit">{{page.metafields.beach.beach-contact-info}}</h3>
-    </a>
-    {% endif%}
+    <!-- Contact Form -->
+    {% render "contact-form" %}
 
     <!-- Gallery Images -->
     {% if page.metafields.photography.photography-gallery-image %}

@@ -42,9 +42,39 @@
       <div class="grid__item post-large--one-third">
         <div class="border-box">
           <h4 class="border-box__title">TOTAL PARTICIPANTS</h4>
+          {% if template contains 'page' and page.url == '/pages/rustic-romance-package' or page.url ==
+          '/pages/tropical-distinctive-design-package' or page.url ==
+          '/pages/floral-distinctive-design-package' or page.url ==
+          '/pages/teal-distinctive-design-package' or page.url ==
+          '/pages/anchors-away-distinctive-design-package' or page.url ==
+          '/pages/classic-distinctive-design-package' or page.url ==
+          '/pages/coral-distinctive-design-package' or page.url ==
+          '/pages/natural-distinctive-design-package' or page.url ==
+          '/pages/dusty-blue-distinctive-design-package' or page.url ==
+          '/pages/beach-bliss-distinctive-design-package' or page.url ==
+          '/pages/rustic-geometric-arch' or page.url ==
+          '/pages/tropical-geometric-arch' or page.url ==
+          '/pages/rustic-romance-package' or page.url ==
+          '/pages/florida-destiny-package' or page.url ==
+          '/pages/florida-nautical-knot-package' or page.url ==
+          '/pages/starfish-distinctive-design-package'%}
           <span class="border-box__amount">2-100</span>
           <p class="border-box__text">For groups over 50, <a href="https://floridabeachweddings.com/contact-us">contact
               us</a> for possible additional charges.</p>
+          {% endif%}
+
+          {% if template contains 'page' and page.url == '/pages/natural-elopement-package' or page.url ==
+          '/pages/natural-simply-florida-package' or page.url ==
+          '/pages/tropical-florida-elopement-package' or page.url ==
+          '/pages/florida-heart-in-the-sand'%}
+          <span class="border-box__amount">2-6</span>
+          <span class="border-box__text">(Includes Bride & Groom)</span>
+          {% endif%}
+
+          {% if template contains 'page' and page.url == '/pages/florida-beach-beginnings-package'%}
+          <span class="border-box__amount">2-10</span>
+          <span class="border-box__text">(Includes Bride & Groom)</span>
+          {% endif%}
         </div>
       </div>
 
@@ -66,40 +96,62 @@
           <p class="border-box__text">*Not valid on Holidays or Holiday Weekends. Additional fees apply for popular
             dates.</p>
           {% endif%}
+          {% if template contains 'page' and page.url == '/pages/natural-elopement-package' or page.url ==
+          '/pages/tropical-florida-elopement-package'%}
+          <br>
+          <p class="border-box__text">*$200+ additional fee for Friday thru Sunday Weddings</p>
+          {% endif%}
         </div>
       </div>
       <div class="grid__item post-large--one-third">
         <div class="border-box">
           <h4 class="border-box__title">RESERVING YOUR DATE<br>NON-REFUNDABLE DEPOSIT</h4>
+          {% if template contains 'page' and page.url == '/pages/rustic-romance-package' or page.url ==
+          '/pages/tropical-distinctive-design-package' or page.url ==
+          '/pages/floral-distinctive-design-package' or page.url ==
+          '/pages/teal-distinctive-design-package' or page.url ==
+          '/pages/anchors-away-distinctive-design-package' or page.url ==
+          '/pages/classic-distinctive-design-package' or page.url ==
+          '/pages/coral-distinctive-design-package' or page.url ==
+          '/pages/natural-distinctive-design-package' or page.url ==
+          '/pages/dusty-blue-distinctive-design-package' or page.url ==
+          '/pages/beach-bliss-distinctive-design-package' or page.url ==
+          '/pages/rustic-geometric-arch' or page.url ==
+          '/pages/tropical-geometric-arch' or page.url ==
+          '/pages/rustic-romance-package' or page.url ==
+          '/pages/florida-destiny-package' or page.url ==
+          '/pages/florida-nautical-knot-package' or page.url ==
+          '/pages/starfish-distinctive-design-package'%}
           <span class="border-box__amount">$500.00</span>
+          {% endif%}
+
+          {% if template contains 'page' and page.url == '/pages/natural-elopement-package' or page.url ==
+          '/pages/natural-simply-florida-package' or page.url ==
+          '/pages/tropical-florida-elopement-package' or page.url ==
+          '/pages/florida-heart-in-the-sand' or page.url ==
+          '/pages/florida-beach-beginnings-package' %}
+          <span class="border-box__amount">$300.00</span>
+          {% endif%}
+
+          {% if template contains 'page' and page.url == '/pages/natural-elopement-package' or page.url ==
+          '/pages/natural-simply-florida-package' or page.url ==
+          '/pages/tropical-florida-elopement-package'%}
           <p class="border-box__text">This non-refundable deposit is required to reserve your date. This deposit will be
             subtracted from the package price. Any permit fees that may be required, will be due at time of reservation
             deposit.</p>
+          {% endif%}
+
+          {% if template contains 'page' and page.url == '/pages/florida-heart-in-the-sand'%}
+          <p class="border-box__text">
+            This package is for the couple getting married only, no other guests and a $300.00 deposit.
+          </p>
+          {% endif%}
+
         </div>
       </div>
     </div>
   </section>
-
-  <section class="package-child-page__block">
-    <div class="grid grid-limit">
-      <div class="grid__item">
-        Contact Form Here
-      </div>
-    </div>
-  </section>
-
-  <!-- {% if page.metafields.child-package.child-package-gallery-image %}
-  <div class="grid grid-limit package-child-page__gallery">
-    <h2 class="package-child-page__gallery-heading">{{page.metafields.child-package.child-package-gallery-heading}}</h2>
-    <ul class="package-child-page__image-list">
-      {% for image in page.metafields.child-package.child-package-gallery-image %}
-      <li class="package-child-page__image">
-        <img src="{{page.metafields.child-package.child-package-gallery-image[forloop.index0]}}" alt="">
-      </li>
-      {% endfor%}
-    </ul>
-  </div>
-  {% endif%} -->
+  {% render "contact-form" %}
 
   {% if page.metafields.child-package.package-additional-info-image %}
   <section class="package-child-page__block package-child-page__block--tan">

@@ -63,9 +63,11 @@
         </div>
     </section>
     <section>
-        <hr>
+
 
         <!-- Wedding Packages -->
+        {% if page.metafields.beach-package.beach-package-description %}
+        <hr>
         <div class="locations__wrapper grid-limit">
             <h2>Wedding Packages</h2>
             <div class="location-child__package-container">
@@ -90,16 +92,11 @@
                 {% endfor %}
             </div>
         </div>
-
-        <!-- Contact Us Banner (or eventually form) -->
-        {% if page.metafields.beach.beach-contact-info %}
-        <a href="https://eleven-cbd.myshopify.com/pages/contact-us">
-            <h3 class="contact-us-banner grid grid-limit">{{page.metafields.beach.beach-contact-info}}</h3>
-        </a>
         {% endif%}
 
         <!-- Hotel Info -->
         {% if page.metafields.hotels.hotels-intro-heading %}
+        <hr>
         <div class="location-child__hotel-intro grid grid-limit">
             <h2 class="location-child__hotel-intro-heading">
                 {{page.metafields.hotels.hotels-intro-heading}}
@@ -289,5 +286,9 @@
             </section>
         </div>
         {% endif%}
+
+        <!-- Contact Form -->
+        {% render "contact-form" %}
+
     </section>
 </div>
